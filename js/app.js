@@ -23,8 +23,7 @@ import {
   clearFormFeedback,
   updateLogicVerifiedStatus,
   showNoState,
-  renderStateBridgeSummary,
-  initHudNote
+  renderStateBridgeSummary
 } from './ui.js';
 import { submitTechnicalInquiry } from './services/inquiryService.js';
 import { appendWormBlock, loadOrInitializeLedger, bindAuditListeners } from './audit.js';
