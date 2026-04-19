@@ -5,7 +5,7 @@
 
 import { saveState, loadState, sha256Hex } from './utils.js';
 import { renderWormChain, renderAuditResults, updateLogicVerifiedStatus } from './ui.js';
-import { computeCustomAuditExposure } from './engine.js'; 
+import { computeCustomAuditExposure, calculateOperationalLoss } from './engine.js'; 
 
 export let wormChain = [];
 
@@ -41,6 +41,8 @@ export async function runAudit() {
   const mult = Number(document.getElementById('multiplier')?.value) || 1;
 
   const results = computeCustomAuditExposure(vol, fail, prob, mult);
+  const baseRisk = calculateOperationalLoss(vol);
+  results.totalLoss = baseRisk; // Ensure sync with engine logic
   renderAuditResults(results);
 
   await appendWormBlock('Deterministic Audit Execution', {

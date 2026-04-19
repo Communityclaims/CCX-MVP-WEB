@@ -11,176 +11,187 @@ export function initLandingDemo() {
     trigger.addEventListener('click', runDemoAnimation);
   }
 
-  // Tab switching logic
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  tabBtns.forEach(btn => {
+  // Tab switching logic for Outputs
+  const outputTabBtns = document.querySelectorAll('.output-tab-btn');
+  outputTabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const tabId = btn.dataset.tab;
+      const outputType = btn.dataset.output;
       
       // Update buttons
-      tabBtns.forEach(b => b.classList.remove('active'));
+      outputTabBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.color = '#888';
+        b.style.borderBottom = 'none';
+      });
       btn.classList.add('active');
-      
+      btn.style.color = 'var(--ccx-frame-regulatory)';
+      btn.style.borderBottom = '2px solid var(--ccx-status-live)';
+
       // Update content
-      const tabContents = document.querySelectorAll('.tab-content');
-      tabContents.forEach(content => content.classList.remove('active'));
-      document.getElementById(`tab-${tabId}`).classList.add('active');
+      const contents = document.querySelectorAll('.output-content');
+      contents.forEach(c => c.classList.add('hidden'));
+      const target = document.getElementById(`out-${outputType}`);
+      if (target) target.classList.remove('hidden');
+    });
+  });
+
+
+  // Bifurcated View Toggle Logic
+  const viewToggleBtns = document.querySelectorAll('.view-toggle-btn');
+  const centerPanel = document.getElementById('centerPanel');
+  const bridge = document.querySelector('.transformation-trace-bridge');
+  const causalOverlay = document.getElementById('causalOverlay');
+
+  viewToggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+      
+      // Update UI buttons
+      viewToggleBtns.forEach(b => {
+        b.classList.remove('active');
+        b.style.background = 'transparent';
+        b.style.color = '#888';
+      });
+      btn.classList.add('active');
+      btn.style.background = '#fff';
+      btn.style.color = 'var(--ccx-frame-regulatory)';
+
+      if (view === 'bifurcated') {
+        if (centerPanel) centerPanel.style.display = 'none';
+        if (bridge) bridge.style.display = 'none';
+        if (causalOverlay) causalOverlay.style.display = 'none';
+      } else {
+        if (centerPanel) centerPanel.style.display = 'block';
+        if (bridge) bridge.style.display = 'flex';
+        if (causalOverlay) causalOverlay.style.display = 'block';
+      }
     });
   });
 }
 
-function scrubPHI(data) {
-  // Surrogate PHI Scrubbing Layer (Simulated for Demo Lifecycle)
-  return {
-    patient_name: 'ENC_ID_8829',
-    medicaid_id: 'TOKEN_SHA256_ACTIVE',
-    need: data.need,
-    action: data.action,
-    timestamp: data.timestamp,
-    status: 'PHI_SAFE'
-  };
-}
-
-function normalizeToSSOT(scrubbedData) {
-  return {
-    id: 'SSOT-TX-' + Math.floor(Math.random() * 100000),
-    member: { deid: scrubbedData.patient_name, token: scrubbedData.medicaid_id },
-    clinical: { primary_need: scrubbedData.need, action: scrubbedData.action },
-    metadata: { version: '2.4.2', ts: scrubbedData.timestamp, source: 'CBO_ENTRY' }
-  };
-}
-
 export function runDemoAnimation() {
   const canvas = document.getElementById('demoCanvas');
-  const leftPanel = document.getElementById('leftPanel');
-  const rightPanel = document.getElementById('rightPanel');
-  const inputRows = document.querySelectorAll('#inputTable tr');
-  const outputRows = document.querySelectorAll('.out-row');
   const initialMsg = document.getElementById('initialMsg');
   const counter = document.getElementById('demoCounter');
   const trigger = document.getElementById('triggerDemo');
   const processingState = document.getElementById('processingState');
-  const traceSteps = document.querySelectorAll('.trace-step');
-  const ssotBridge = document.getElementById('ssotBridge');
-  const ssotJson = document.getElementById('ssotJson');
-  const causalOverlay = document.getElementById('causalOverlay');
+  const outputContainer = document.getElementById('outputContainer');
+  const outputRationale = document.getElementById('outputRationale');
+  const fragmentRows = document.querySelectorAll('.fragment-row');
+  const logicSteps = document.querySelectorAll('.logic-step');
   
-  if (!canvas || !leftPanel || !rightPanel || !trigger) return;
+  if (!canvas || !trigger) return;
 
   // Reset UI
   trigger.disabled = true;
-  leftPanel.classList.remove('scanning');
-  initialMsg.classList.remove('hidden');
-  counter.classList.remove('complete');
+  if (initialMsg) {
+    initialMsg.style.display = 'block';
+  }
+  if (outputContainer) {
+    outputContainer.classList.add('hidden');
+    outputContainer.style.opacity = '0';
+    // Reset tabs to master
+    const tabBtns = document.querySelectorAll('.output-tab-btn');
+    tabBtns.forEach(b => {
+      b.classList.remove('active');
+      b.style.color = '#888';
+      b.style.borderBottom = 'none';
+    });
+    const masterBtn = document.querySelector('.output-tab-btn[data-output="master"]');
+    if (masterBtn) {
+      masterBtn.classList.add('active');
+      masterBtn.style.color = 'var(--ccx-frame-regulatory)';
+      masterBtn.style.borderBottom = '2px solid var(--ccx-status-live)';
+    }
+    const tabContents = document.querySelectorAll('.output-content');
+    tabContents.forEach(c => c.classList.add('hidden'));
+    const masterContent = document.getElementById('out-master');
+    if (masterContent) masterContent.classList.remove('hidden');
+  }
+  if (outputRationale) {
+    outputRationale.classList.add('hidden');
+    outputRationale.style.opacity = '0';
+  }
   counter.textContent = '0.00s';
-  processingState.textContent = 'Initiating...';
-  if (ssotBridge) ssotBridge.classList.add('hidden');
-  if (causalOverlay) causalOverlay.innerHTML = '';
+  processingState.textContent = 'INITIATING RECONCILIATION...';
   
-  inputRows.forEach(row => row.classList.remove('active', 'processed'));
-  outputRows.forEach(row => row.classList.remove('visible'));
-  traceSteps.forEach(step => step.classList.remove('active'));
+  fragmentRows.forEach(row => { 
+    row.style.opacity = '1'; 
+    row.style.color = '#555';
+    row.style.fontWeight = '400';
+  });
+  logicSteps.forEach(step => { 
+    step.style.background = 'rgba(11, 31, 51, 0.1)'; 
+    const span = step.querySelector('span');
+    if (span) {
+      span.style.color = '#999';
+      span.style.fontWeight = '400';
+    }
+  });
 
-  // Step 1: Start Scan
+  // Step 1: Fragment Recognition
   setTimeout(() => {
-    leftPanel.classList.add('scanning');
-  }, 50);
+    processingState.textContent = 'ANALYZING SOURCE FRAGMENTS...';
+    fragmentRows.forEach((row, i) => {
+      setTimeout(() => {
+        row.style.color = 'var(--ccx-frame-regulatory)';
+        row.style.fontWeight = '600';
+      }, i * 200);
+    });
+  }, 500);
 
-  // Processing State Loop
-  const states = ['Scrubbing PHI...', 'Normalizing SSOT...', 'Mapping Reporting Layer...'];
-  let stateIdx = 0;
-  const stateInterval = setInterval(() => {
-    processingState.textContent = states[stateIdx % states.length];
-    stateIdx++;
-  }, 150);
+  // Step 2: Alignment Passage
+  setTimeout(() => {
+    processingState.textContent = 'DETERMINISTIC ALIGNMENT ACTIVE...';
+    logicSteps.forEach((step, i) => {
+      setTimeout(() => {
+        step.style.background = 'var(--ccx-status-live)';
+        const span = step.querySelector('span');
+        if (span) {
+          span.style.color = 'var(--ccx-frame-regulatory)';
+          span.style.fontWeight = '600';
+        }
+      }, i * 300);
+    });
+  }, 1200);
 
-  // Step 2: Extraction sequence
-  const totalDuration = 500;
-  const rowInterval = totalDuration / inputRows.length;
-
+  // Counter Animation
   let currentCounter = 0;
   const counterInterval = setInterval(() => {
-    currentCounter += 0.05;
+    currentCounter += 0.02;
     if (currentCounter >= 0.50) {
       counter.textContent = '0.50s';
       clearInterval(counterInterval);
     } else {
       counter.textContent = currentCounter.toFixed(2) + 's';
     }
-  }, 50);
+  }, 40);
 
-  // Trace Steps Activation
-  setTimeout(() => traceSteps[0].classList.add('active'), 50);
-  setTimeout(() => traceSteps[1].classList.add('active'), 200);
-  setTimeout(() => traceSteps[2].classList.add('active'), 400);
-
-  // Mock SSOT generation
-  const mockRaw = { need: 'Housing instability', action: 'Referral submitted', timestamp: '2026-04-16T13:42:00Z' };
-  const ssot = normalizeToSSOT(scrubPHI(mockRaw));
-  
-  inputRows.forEach((row, index) => {
-    setTimeout(() => {
-      row.classList.add('active');
-      
-      // Map to Clinical view (Tab 1)
-      if (index === 0) initialMsg.classList.add('hidden');
-      
-      if (outputRows[index]) {
-        outputRows[index].classList.add('visible');
-        drawCausalLine(row, outputRows[index], causalOverlay);
-      }
-
+  // Step 3: Artifact Generation
+  setTimeout(() => {
+    if (initialMsg) initialMsg.style.display = 'none';
+    if (outputContainer) {
+      outputContainer.classList.remove('hidden');
       setTimeout(() => {
-        row.classList.remove('active');
-        row.classList.add('processed');
-      }, rowInterval * 0.8);
-
-      if (index === inputRows.length - 1) {
-        setTimeout(() => {
-          clearInterval(stateInterval);
-          if (ssotBridge && ssotJson) {
-            ssotBridge.classList.remove('hidden');
-            ssotJson.textContent = JSON.stringify(ssot, null, 2);
-          }
-          completeDemo();
-        }, rowInterval);
-      }
-    }, index * rowInterval);
-  });
-
-  function drawCausalLine(startEl, endEl, svg) {
-    if (!svg) return;
-    const svgRect = svg.getBoundingClientRect();
-    const startRect = startEl.getBoundingClientRect();
-    const endRect = endEl.getBoundingClientRect();
-
-    const x1 = startRect.right - svgRect.left;
-    const y1 = startRect.top + (startRect.height / 2) - svgRect.top;
-    const x2 = endRect.left - svgRect.left;
-    const y2 = endRect.top + (endRect.height / 2) - svgRect.top;
-
-    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    line.setAttribute('x1', x1);
-    line.setAttribute('y1', y1);
-    line.setAttribute('x2', x2);
-    line.setAttribute('y2', y2);
-    line.setAttribute('stroke', '#00ff41');
-    line.setAttribute('stroke-width', '1');
-    line.setAttribute('opacity', '0.5');
-    svg.appendChild(line);
-
-    setTimeout(() => line.remove(), 400);
-  }
+        outputContainer.style.opacity = '1';
+      }, 50);
+    }
+    if (outputRationale) {
+      outputRationale.classList.remove('hidden');
+      setTimeout(() => {
+        outputRationale.style.opacity = '1';
+      }, 500);
+    }
+    completeDemo();
+  }, 2600);
 
   function completeDemo() {
-    processingState.textContent = 'Transformation Complete';
-    counter.classList.add('complete');
-    
+    processingState.textContent = 'AUDIT-READY RECORD // RECoupMENT RISK VALIDATED';
     startLatencyCountdown();
 
     setTimeout(() => {
       trigger.disabled = false;
-      trigger.textContent = 'Run Again';
+      trigger.textContent = 'Reset Alignment Trace';
     }, 2000);
   }
 }

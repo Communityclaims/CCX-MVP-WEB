@@ -1,6 +1,6 @@
 {
-  "name": "CCXNY Healthcare Operations Dashboard",
-  "description": "A high-fidelity, deterministic modeling engine for Social Care Networks (SCNs) under the NYS 1115 Waiver framework, ensuring statutory compliance and documentation integrity.",
+  "name": "CCX | Audit Recoupment Risk Detection",
+  "description": "Deterministic audit recoupment risk detection and documentation defensibility layer for Social Care Networks (SCNs) and MCO leadership under the NYHER framework.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

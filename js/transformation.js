@@ -94,25 +94,25 @@ function processInput(text) {
     confidence: {},
     audit_trace: []
   };
-  addAuditLog("Input received: " + text.substring(0, 30) + "...");
+  addAuditLog("Record observed: " + text.substring(0, 30) + "...");
 
-  // 2. PHI Scrubbing
+  // 2. Identity Alignment
   const scrubbed = scrubPHI(text);
   SSOT.scrubbed_input = scrubbed;
-  addAuditLog("PHI Scrubbing complete: PII identifiers suppressed.");
+  addAuditLog("Identity alignment complete: PII identifiers suppressed.");
 
-  // 3. Extraction
+  // 3. Logic Application
   const entities = extractEntities(scrubbed);
   SSOT.entities = entities;
   
-  // 4. Confidence Scoring
+  // 4. Verification Check
   SSOT.confidence = {
     need: entities.need ? 'HIGH' : 'LOW',
     action: entities.action ? 'HIGH' : 'LOW',
     status: entities.status ? 'HIGH' : 'LOW',
     provider: entities.provider ? 'HIGH' : 'LOW'
   };
-  addAuditLog("Entity extraction concluded via deterministic rules.");
+  addAuditLog("Alignment rules applied via deterministic logic.");
 
   renderDetectionPanel();
 }
@@ -173,11 +173,11 @@ function renderDetectionPanel() {
     if (valEl) valEl.textContent = value;
     if (confEl) {
       confEl.innerHTML = confidence === 'HIGH' ? '<span class="check">✔</span>' : '<span class="warn">⚠</span>';
-      confEl.title = confidence === 'HIGH' ? 'High Confidence' : 'Requires Review';
+      confEl.title = confidence === 'HIGH' ? 'Aligned' : 'Requires Review';
     }
   });
 
-  addAuditLog("Awaiting user confirmation of SSOT structure.");
+  addAuditLog("Awaiting confirmation of aligned structure.");
 }
 
 function generateOutputs() {
@@ -187,8 +187,8 @@ function generateOutputs() {
   document.getElementById('outputSection').classList.remove('hidden');
   document.getElementById('auditPanel').classList.remove('hidden');
 
-  addAuditLog("SSOT generation confirmed: Object locked.");
-  addAuditLog("Transformation Engine executing transformations...");
+  addAuditLog("Aligned structure confirmed: Object locked.");
+  addAuditLog("Alignment logic executing...");
 
   // 1. Grant Reporting
   renderOutput('out-grant', {
@@ -197,7 +197,7 @@ function generateOutputs() {
     "Narrative": `Member identified with ${SSOT.entities.need || 'needs'}. Intervention: ${SSOT.entities.action || 'Contacted'}.`
   });
 
-  // 2. SCN / 1115
+  // 2. SCN / NYHER
   renderOutput('out-scn', {
     "Upstream Driver": SSOT.entities.need || "Social Care",
     "Referral Status": SSOT.entities.action === 'Referred' ? 'ACTIVE' : 'N/A',

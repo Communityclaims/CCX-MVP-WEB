@@ -67,9 +67,9 @@ export function calculateFidelity(screening, referral) {
 
 export function classifyNode(fidelity) {
   const score = Math.min(1, Math.max(0, Number(fidelity) || 0));
-  if (score < FIDELITY_HIGH_RISK_THRESHOLD) return 'High Audit Exposure';
+  if (score < FIDELITY_HIGH_RISK_THRESHOLD) return 'Recoupment Risk';
   if (score < FIDELITY_STABLE_THRESHOLD)    return 'Documentation Risk';
-  return 'Stable';
+  return 'High Integrity';
 }
 
 export function generateNodes(count = NODE_COUNT) {
@@ -111,7 +111,7 @@ export function computeCustomAuditExposure(volume, failureRate, auditProb, multi
   const fr = Math.min(1, Math.max(0, Number(failureRate) || 0));
   const ap = Math.min(1, Math.max(0, Number(auditProb) || 0));
   const m  = Math.max(1, Number(multiplier) || 1);
-  const baseRisk = v * ENCOUNTER_COST * MEAT_FAILURE * 12; 
+  const baseRisk = calculateOperationalLoss(v); 
   const sampled = baseRisk * fr * ap;
   const extrapolated = sampled * m;
   return { totalLoss: baseRisk, sampled, extrapolated };

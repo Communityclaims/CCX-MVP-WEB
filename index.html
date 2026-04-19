@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CCX deterministic diagnostic for SCN documentation integrity and audit exposure under the NYS 1115 Waiver." />
-  <title>CCX | SCN Diagnostic — Documentation Integrity & Revenue Engine</title>
+  <meta name="description" content="CCX deterministic record Audit Alignment for documentation integrity and audit readiness across Social Care Networks under the NYHER framework." />
+  <title>CCX | Cross-System Record Audit Alignment</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -14,244 +14,281 @@
       <a href="index.html" class="brand">CCX</a>
       <nav aria-label="Primary navigation">
         <ul class="nav-links">
-          <li><a href="index.html" aria-current="page">Dashboard</a></li>
-          <li><a href="audit.html">Audit Ledger</a></li>
-          <li><a href="network.html">Network Fidelity</a></li>
-          <li><a href="methodology.html">Methodology</a></li>
+          <li><a href="index.html" aria-current="page">Operational Audit Alignment</a></li>
+          <li><a href="audit.html">Compliance Trace</a></li>
+          <li><a href="network.html">Cross-System Audit Alignment</a></li>
+          <li><a href="methodology.html">Framework</a></li>
         </ul>
       </nav>
-      <div class="peripheral-hud" id="mainHud">
-        <div class="hud-group">
-          <span class="hud-label">Velocity</span>
-          <div class="hud-value" id="hud-velocity">0.50s</div>
-        </div>
-        <div class="hud-group">
-          <span class="hud-label">Fidelity</span>
-          <div class="hud-value" id="hud-fidelity">98.2%</div>
-        </div>
-        <div class="hud-group">
-          <span class="hud-label">Latency</span>
-          <div class="hud-value" id="hud-latency">90s</div>
-        </div>
-        <div class="hud-group">
-          <div class="seal-badge" style="font-size: 0.5rem; padding: 2px 4px; border-color: var(--ccx-outcome-gold); color: var(--ccx-outcome-gold);">AI DISCLOSURE S7263</div>
-        </div>
-        <div class="hud-group">
-          <span class="hud-label">Status</span>
-          <div class="hud-value">
-            <span class="status-heartbeat"></span>
-            <span>ACTIVE</span>
-          </div>
-        </div>
-      </div>
     </div> 
   </header>
 
+  <div class="peripheral-hud visible" style="border-bottom: 1px solid var(--border-alpha); background: #fff; padding: 0.75rem 0; justify-content: center; gap: 4rem; position: sticky; top: var(--header-height); z-index: 90;">
+    <div class="hud-group">
+      <span class="hud-label">Velocity</span>
+      <div id="hud-velocity" class="hud-value">0.50s</div>
+    </div>
+    <div class="hud-group">
+      <span class="hud-label">Documentation Integrity</span>
+      <div id="hud-integrity" class="hud-value">98.2%</div>
+    </div>
+    <div class="hud-group">
+      <span class="hud-label">Latency</span>
+      <div id="hud-latency" class="hud-value">90s</div>
+    </div>
+    <div class="hud-group">
+      <div class="seal-badge" style="font-size: 0.5rem; padding: 2px 4px; border-color: var(--ccx-outcome-gold); color: var(--ccx-outcome-gold);">AI DISCLOSURE S7263</div>
+    </div>
+    <div class="hud-group">
+      <span class="hud-label">Status</span>
+      <div class="hud-value">
+        <span class="status-heartbeat"></span>
+        <span>ACTIVE</span>
+      </div>
+    </div>
+  </div>
+
   <main class="container">
+
     <!-- Conversion Layer: Hero -->
-    <section class="conversion-hero">
-      <h1 style="max-width: 900px; margin-left: auto; margin-right: auto;">From unstructured encounter → structured, audit-ready reporting in one pass.</h1>
-      <p class="subheadline" style="max-width: 700px; margin-left: auto; margin-right: auto;">Reduces documentation and reporting burden by collapsing multiple reporting systems into a single workflow event.</p>
+    <section class="conversion-hero" style="text-align: center; padding: 6rem 0 4rem;">
+      <p class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 1rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase;">Audit Recoupment Risk Detection for Healthcare Documentation Systems</p>
+      <h1 style="margin-bottom: 1.5rem; font-size: 3.5rem;">Identify Documentation Gaps That Create Audit Recoupment Risk</h1>
       
-      <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 2rem;">
-        <a href="#workflow-engine" class="btn-institutional btn-glass" style="padding: 1rem 2.5rem;">Run Live Extraction</a>
-        <a href="methodology.html" class="btn-institutional btn-secondary" style="padding: 1rem 2.5rem;">Verify Output Integrity</a>
+      <p class="subheadline" style="max-width: 800px; margin: 0 auto 2.5rem; font-size: 1.25rem; line-height: 1.6; font-weight: 500; opacity: 0.9;">
+        CCX identifies inconsistencies across clinical and social care documentation that can lead to audit recoupment under NYHER and 1115 compliance frameworks—without modifying underlying systems.
+      </p>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#retrospective" class="btn-institutional btn-glass" style="padding: 1.1rem 2.8rem;">Identify Audit Recoupment Risk</a>
+        <a href="#transformation-hud-v4" class="btn-institutional btn-secondary" style="padding: 1.1rem 2.8rem;">Detect Documentation Gaps</a>
+        <a href="#handshake" class="btn-institutional btn-secondary" style="padding: 1.1rem 2.8rem; background: transparent; border-color: rgba(0,0,0,0.15);">Test Audit Defensibility</a>
       </div>
     </section>
 
-    <!-- Workflow Transformation Engine (3-Panel) -->
-    <div class="phi-integrity-bridge" style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.65rem; color: var(--ccx-status-live);">
-      <div class="bridge-tag">PHI Status: <span id="phi-deid-status">De-identified</span> <span class="check">✔</span></div>
-      <div class="bridge-tag">Tokenized <span class="check">✔</span></div>
-      <div class="bridge-tag">Audit Logged <span class="check">✔</span></div>
-    </div>
-    <section class="demo-container" id="workflow-engine">
-      <div class="workflow-engine" id="demoCanvas">
-        <!-- Panel 1: Input Layer (Referral / Note) -->
-        <div class="engine-panel input-layer" id="leftPanel">
-          <div class="panel-header">
-            <span>Upstream Workflow Entry</span>
-            <span class="phi-seal" style="background: rgba(0, 255, 65, 0.1); color: var(--ccx-status-live); padding: 2px 6px; border-radius: 2px; font-size: 0.55rem;">PHI SECURE</span>
-          </div>
-          <div class="panel-content">
-            <div class="input-simulation">
-              <table class="input-table" id="inputTable">
-                <tr data-key="patient_name">
-                  <td>Member Name</td>
-                  <td class="phi-value">John S. <span class="scrub-indicator" style="font-size: 0.5rem; opacity: 0.5; margin-left: 0.5rem;">→ DE-ID</span></td>
-                </tr>
-                <tr data-key="medicaid_id">
-                  <td>Medicaid ID</td>
-                  <td class="phi-value">RX99214 <span class="scrub-indicator" style="font-size: 0.5rem; opacity: 0.5; margin-left: 0.5rem;">→ TOKEN</span></td>
-                </tr>
-                <tr data-key="need">
-                  <td>Identified Need</td>
-                  <td>Housing instability (SRO Risk)</td>
-                </tr>
-                <tr data-key="action">
-                  <td>Action Taken</td>
-                  <td>Referral submitted to CM Org</td>
-                </tr>
-                <tr data-key="timestamp">
-                  <td>Event Log</td>
-                  <td>2026-04-16T13:42:00Z</td>
-                </tr>
-              </table>
-              <div class="scan-line"></div>
-            </div>
-          </div>
+
+    <!-- Consolidated Risk & Audit Context Section -->
+    <section id="retrospective" class="panel-hardened" style="margin-top: 1rem; border-left: 4px solid var(--ccx-outcome-gold); padding: 3rem;">
+      <p class="eyebrow" style="margin-bottom: 1rem;">Audit Recoupment Risk Surface</p>
+      <h2 style="margin-bottom: 1.5rem;">Pre-Audit Recoupment Risk Identification</h2>
+      
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-bottom: 3rem; align-items: start;">
+        <div>
+          <p style="font-weight: 500; font-size: 1.15rem; line-height: 1.6; color: var(--ccx-frame-regulatory); margin-bottom: 1.5rem;">
+            Identifies where existing documentation fails to meet audit defensibility thresholds before any structural record changes.
+          </p>
+
+          <p style="opacity: 0.7; font-size: 1rem; line-height: 1.6;">
+            <strong>Focus Areas:</strong><br>
+            • Missing documentation fields that create audit recoupment exposure<br>
+            • Referral actions without verifiable confirmation<br>
+            • Inconsistent event sequencing across systems<br><br>
+            <strong>Output:</strong><br>
+            A quantified baseline of audit recoupment risk across your network.
+          </p>
         </div>
-
-        <!-- Panel 2: Transformation Engine (SSOT Logic) -->
-        <div class="engine-panel transformation-layer" id="centerPanel">
-          <div class="processing-state" id="processingState">Awaiting Trigger...</div>
-          
-          <div class="pipeline-trace">
-            <div class="trace-step" id="step-scrub">
-              <div class="trace-dot"></div>
-              <span>PHI Scrubbing</span>
-            </div>
-            <div class="trace-step" id="step-ssot">
-              <div class="trace-dot"></div>
-              <span>SSOT Normalization</span>
-            </div>
-            <div class="trace-step" id="step-mapping">
-              <div class="trace-dot"></div>
-              <span>Schema Mapping</span>
-            </div>
-          </div>
-
-          <div class="velocity-counter">
-            <span class="velocity-value" id="demoCounter">0.00s</span>
-            <span class="velocity-label">Transformation Latency</span>
-          </div>
-
-          <!-- SSOT Visualizer (Appears during animation) -->
-          <div class="ssot-bridge hidden" id="ssotBridge" style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; background: #111; border: 1px solid var(--border-alpha); padding: 0.75rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.55rem; z-index: 10;">
-            <div class="bridge-header" style="opacity: 0.5; margin-bottom: 0.5rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.25rem;">SSOT_MANIFEST v2.4</div>
-            <pre id="ssotJson" style="margin: 0; color: #FFF; line-height: 1.2;">{}</pre>
-          </div>
+        <div style="background: rgba(0,0,0,0.02); padding: 2rem; border-radius: 4px; border: 1px solid var(--border-alpha);">
+          <p class="eyebrow" style="margin-bottom: 1.5rem; font-size: 0.7rem;">Primary Objectives</p>
+          <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem;">
+            <li style="margin-bottom: 1.25rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: var(--ccx-status-live); font-weight: bold;">✔</span> 
+              <span>Identify records at risk of recoupment exposure</span>
+            </li>
+            <li style="margin-bottom: 1.25rem; display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: var(--ccx-status-live); font-weight: bold;">✔</span> 
+              <span>Surface documentation gaps requiring intervention</span>
+            </li>
+            <li style="display: flex; gap: 0.75rem; align-items: flex-start;">
+              <span style="color: var(--ccx-status-live); font-weight: bold;">✔</span> 
+              <span>Support correction and resubmission workflows</span>
+            </li>
+          </ul>
         </div>
+      </div>
 
-        <!-- Panel 3: Output Layer (Reporting) -->
-        <div class="engine-panel output-layer" id="rightPanel">
-          <div class="output-tabs">
-            <button class="tab-btn active" data-tab="grant">Grant Reporting</button>
-            <button class="tab-btn" data-tab="scn">SCN / 1115</button>
-            <button class="tab-btn" data-tab="compliance">Compliance</button>
-            <button class="tab-btn" data-tab="cms">CMS Billing</button>
-          </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; border-top: 1px solid var(--border-alpha); padding-top: 2.5rem;">
+        <article>
+          <h4 class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 0.75rem;">Documentation Integrity</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.6;">
+            Establishes structured oversight across records to reduce variability in audit and reporting outputs.
+          </p>
+        </article>
+        <article>
+          <h4 class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 0.75rem;">Audit Readiness</h4>
+          <p style="font-size: 0.85rem; opacity: 0.8; line-height: 1.6;">
+            Surface records at risk of recoupment exposure and identify documentation gaps requiring intervention.
+          </p>
+        </article>
+      </div>
+
+    </section>
+
+    <section class="demo-container" id="workflow-engine" style="margin-top: 2rem; padding: 1.5rem 1.5rem 0.5rem; background: var(--ccx-bg-archival);">
+      <!-- Forensic View Switching (Bifurcated Toggle) -->
+      <div style="max-width: var(--container-max); margin: 0 auto 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem;">
+        <span class="eyebrow" style="font-size: 0.5rem; color: #888;">Visualization Methodology:</span>
+        <div class="persona-switcher" style="margin: 0; padding: 2px; background: rgba(11, 31, 51, 0.05); border-radius: 2px;">
+          <button type="button" class="view-toggle-btn active" data-view="full" style="padding: 0.3rem 0.8rem; font-size: 0.55rem; border: none; background: #fff; cursor: pointer; font-family: var(--font-mono); text-transform: uppercase; border-radius: 1px;">Forensic Trace</button>
+          <button type="button" class="view-toggle-btn" data-view="bifurcated" style="padding: 0.3rem 0.8rem; font-size: 0.55rem; border: none; background: transparent; cursor: pointer; font-family: var(--font-mono); text-transform: uppercase; color: #888; border-radius: 1px;">Bifurcated View</button>
+        </div>
+      </div>
+      <div class="workflow-engine-v5" id="demoCanvas" style="display: flex; flex-direction: column; gap: 0; max-width: var(--container-max); margin: 0 auto; border: 1px solid var(--border-alpha); background: #fff; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(11, 31, 51, 0.05);">
+        
+        <div style="display: flex; align-items: stretch; min-height: 480px;">
           
-          <div class="panel-content" id="outputContent">
-            <div class="initial-msg" id="initialMsg">Awaiting extraction sequence...</div>
+          <!-- STATE 1: FRAGMENTED INPUT FIELD -->
+          <div class="pipeline-state inputs" id="leftPanel" style="flex: 1; padding: 2.5rem; position: relative; transition: background 0.5s ease;">
+            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">Source Inputs (Unstructured System Fragments)</p>
             
-            <!-- LAYER A: Grant Reporting (Primary UI) -->
-            <div class="tab-content active" id="tab-grant">
-              <div class="layer-a-content">
-                <div class="out-row" data-key="encounters_count"><strong>Encounter Context:</strong> Single Service Event</div>
-                <div class="out-row" data-key="service_category"><strong>Category:</strong> Housing Support Services</div>
-                <div class="out-row" data-key="population_segment"><strong>Population:</strong> SCN-Eligible Beneficiary</div>
-                <div class="out-row" data-key="outcome_status"><strong>Outcome:</strong> Referral Successful</div>
-                <div class="out-row" data-key="narrative_summary" style="margin-top: 1rem; font-style: italic; opacity: 0.8; font-size: 0.75rem;">
-                  "Member identified with acute housing instability; referral initiated to community managementorg for SRO risk mitigation."
-                </div>
-                <div class="time-proxy out-row" style="margin-top: 1.5rem; border-top: 1px solid var(--border-alpha); padding-top: 1rem;">
-                  <span class="eyebrow" style="font-size: 0.5rem;">Production Velocity</span>
-                  <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                    <span style="font-size: 0.65rem; opacity: 0.5;">Manual (Baseline) vs CCX</span>
-                    <span style="color: var(--ccx-status-live); font-family: var(--font-mono); font-weight: 600;">18m → 0.5s</span>
-                  </div>
-                </div>
+            <div id="sourceFragments" style="margin-top: 2.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #555; line-height: 2;">
+              <div class="fragment-row" style="padding-left: 0.5rem; transition: opacity 0.3s; margin-bottom: 0.75rem;">
+                <span style="color: #999;">[EHR_TEXT]</span> patient reports housing instability, referred to community organization for support services.
+              </div>
+              <div class="fragment-row" style="padding-left: 1.2rem; opacity: 0.8; transition: opacity 0.3s; margin-bottom: 0.75rem;">
+                <span style="color: #999;">[CBO_ENTRY]</span> client intake completed for temporary housing assistance program.
+              </div>
+              <div class="fragment-row" style="padding-left: 0.2rem; opacity: 0.7; transition: opacity 0.3s;">
+                <span style="color: #999;">[REFERRAL_LOG]</span> referral initiated to housing support provider; pending confirmation.
               </div>
             </div>
 
-            <!-- LAYER B: SCN / NY 1115 Waiver Reporting -->
-            <div class="tab-content" id="tab-scn">
-              <div class="reporting-fields">
-                <div class="field-row">
-                  <span class="field-label">Upstream Driver</span>
-                  <span class="field-value">Housing Instability</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Referral Loop status</span>
-                  <span class="field-value">Open (Verification Pending)</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Completion State</span>
-                  <span class="field-value">Encounter Documented</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Network Entity ID</span>
-                  <span class="field-value">CBO-NY-8821</span>
-                </div>
-                <div style="margin-top: 2rem; text-align: center;">
-                  <div class="loop-closure-indicator" style="height: 4px; background: rgba(0,255,65,0.1); border-radius: 2px; overflow: hidden; margin-bottom: 0.5rem;">
-                    <div class="indicator-progress" style="height: 100%; background: var(--ccx-status-live); width: 75%;"></div>
-                  </div>
-                  <span class="eyebrow" style="font-size: 0.55rem;">Loop Closure Integrity: 75%</span>
-                </div>
-              </div>
-            </div>
+            <p style="position: absolute; bottom: 1.5rem; left: 1.5rem; font-size: 0.55rem; opacity: 0.4; margin: 0;">Inputs represent de-identified system signals prior to reconciliation.</p>
+          </div>
 
-            <!-- LAYER C: Compliance Mapping -->
-            <div class="tab-content" id="tab-compliance">
-              <div class="compliance-fields">
-                <div class="field-row">
-                  <span class="field-label">Auth Class</span>
-                  <span class="field-value">Medical Assistance Program</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Functional Expense</span>
-                  <span class="field-value">Direct SCN Service [Suggested]</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Governance Flag</span>
-                  <span class="field-value">18 NYCRR §521 Validated</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Audit Trace ID</span>
-                  <span class="field-value">CCX-TX-992-ALPHA</span>
-                </div>
-                <div class="compliance-warning" style="margin-top: 2rem; border: 1px dashed var(--ccx-outcome-gold); padding: 0.75rem; font-size: 0.6rem; opacity: 0.8; line-height: 1.4;">
-                   <strong>NY COMPLIANCE MAPPING LAYER:</strong><br>
-                   This output is for administrative mapping only. System does not generate or submit CHAR500, 990, or other regulatory filings.
-                </div>
-              </div>
-            </div>
-
-            <!-- LAYER D: CMS Billing Suggestion (HITL MANDATORY) -->
-            <div class="tab-content" id="tab-cms">
-              <div class="hitl-requirement-banner" style="background: rgba(239, 68, 68, 0.1); border: 1px solid #EF4444; padding: 0.75rem; border-radius: 4px; margin-bottom: 1.5rem; text-align: center;">
-                <span class="lock-icon" style="margin-right: 0.5rem;">🔒</span>
-                <span class="eyebrow" style="color: #EF4444; font-size: 0.6rem;">HITL Requirement Mandatory</span>
-              </div>
-              <div class="compliance-fields" id="billingContent">
-                <div class="field-row">
-                  <span class="field-label">HCPCS Code</span>
-                  <span class="field-value">G0019</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Modifier</span>
-                  <span class="field-value">U1 (Suggested)</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Fidelity Score</span>
-                  <span class="field-value">0.98</span>
-                </div>
-                <div class="field-row">
-                  <span class="field-label">Billing Eligibility</span>
-                  <span class="field-value">QUALIFIED</span>
-                </div>
-                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: 4px; font-size: 0.6rem; border: 1px solid var(--border-alpha);">
-                  <strong>Operational Directive:</strong> Human in the Loop (HITL) review is required for all billing suggestions. System authority is restricted to modeling; no automated claims submission is possible.
-                </div>
-              </div>
+          <!-- TRANSFORMATION TRACE LAYER (Mid-layer forensic bridge) -->
+          <div class="transformation-trace-bridge" style="width: 4rem; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(11, 31, 51, 0.02); border-left: 1px solid var(--border-alpha); border-right: 1px solid var(--border-alpha); z-index: 10;">
+            <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 0.45rem; color: #999; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap;">
+              Unstructured → Standardized &nbsp;&nbsp; Duplicates → Reconciled &nbsp;&nbsp; Events → Sequenced
             </div>
           </div>
 
-          <div class="governance-footer">
-            — Regulatory Infrastructure Layer —<br>
-            PHI-Safe De-identification Active | USCDI v3 Aligned | Audit Trace Active
+          <!-- STATE 2: ALIGNMENT LAYER (CORE SYSTEM LOGIC ZONE) -->
+          <div class="pipeline-state alignment" id="centerPanel" style="flex: 1; padding: 2.5rem; border-right: 1px solid var(--border-alpha); position: relative; background: rgba(11, 31, 51, 0.01);">
+            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">Deterministic Audit Alignment Layer</p>
+            
+            <div class="logic-membrane" style="margin-top: 3.5rem; display: flex; flex-direction: column; gap: 2rem;">
+              <div class="logic-step" id="step-1" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
+                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Detect Signal Inconsistencies</span>
+              </div>
+              <div class="logic-step" id="step-2" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
+                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Resolve Cross-System Conflicts</span>
+              </div>
+              <div class="logic-step" id="step-3" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
+                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Construct Audit Timeline</span>
+              </div>
+              <div class="logic-step" id="step-4" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
+                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Generate Audit-Ready Record</span>
+              </div>
+            </div>
+
+            <div class="processing-stats" style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; display: flex; justify-content: space-between; align-items: center; opacity: 0.4;">
+              <div class="processing-state" id="processingState" style="font-family: var(--font-mono); font-size: 0.55rem; text-transform: uppercase;">Ready for Audit Alignment</div>
+              <div id="demoCounter" style="font-family: var(--font-mono); font-size: 0.55rem;">0.00s</div>
+            </div>
+          </div>
+
+          <!-- STATE 3: STRUCTURED RECORD (FINAL FORM) -->
+          <div class="pipeline-state record" id="rightPanel" style="flex: 2; padding: 2rem; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; background: #fff; position: relative;">
+            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">Institutional Record Outputs</p>
+            
+            <div id="initialMsg" style="position: absolute; text-align: center; opacity: 0.3; font-size: 0.7rem; top: 50%; left: 50%; transform: translate(-50%, -50%);">Awaiting definitive Audit Alignment scan...</div>
+
+            <!-- Tab Navigation for Outputs -->
+            <div id="outputContainer" class="hidden" style="margin-top: 1rem; opacity: 0; transition: opacity 1s;">
+              <div class="output-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-alpha); padding-bottom: 0.5rem;">
+                <button class="output-tab-btn active" data-output="master" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: var(--ccx-frame-regulatory); cursor: pointer; border-bottom: 2px solid var(--ccx-status-live); padding: 0.25rem 0.5rem;">Canonical Audit Record</button>
+                <button class="output-tab-btn" data-output="grant" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">GRANT reporting</button>
+                <button class="output-tab-btn" data-output="scn" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">SCN / 1115</button>
+                <button class="output-tab-btn" data-output="cms" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">CMS billing</button>
+              </div>
+
+              <!-- Master Record Artifact -->
+              <div class="output-content active" id="out-master">
+                <div class="institutional-artifact" style="width: 100%; border: 1px solid #111; padding: 1.5rem; background: #fff; font-family: var(--font-sans);">
+                  <div style="font-family: var(--font-mono); font-size: 0.5rem; color: #888; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">Master Audit Aligned Record // TX-88291</div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="artifact-fields" style="display: flex; flex-direction: column; gap: 0.8rem;">
+                      <div style="display: flex; justify-content: space-between; font-size: 0.7rem; border-bottom: 1px solid #f5f5f5; padding-bottom: 0.4rem;">
+                        <span style="color: #666;">Patient ID</span>
+                        <span style="font-weight: 600; font-family: var(--font-mono);">ENC_ID_4829</span>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; font-size: 0.7rem; border-bottom: 1px solid #f5f5f5; padding-bottom: 0.4rem;">
+                        <span style="color: #666;">Primary Condition</span>
+                        <span style="font-weight: 600;">Housing Instability</span>
+                      </div>
+                      <div style="display: flex; justify-content: space-between; font-size: 0.7rem; border-bottom: 1px solid #f5f5f5; padding-bottom: 0.4rem;">
+                        <span style="color: #666;">Verification Date</span>
+                        <span style="font-weight: 600;">04/17/2026</span>
+                      </div>
+                    </div>
+                    <div class="artifact-timeline" style="font-size: 0.6rem; color: #555; display: flex; flex-direction: column; gap: 0.4rem; font-family: var(--font-mono); border-left: 1px solid #eee; padding-left: 1.5rem;">
+                      <div style="font-size: 0.5rem; color: #999; margin-bottom: 0.25rem;">AUDIT TRAIL</div>
+                      <div style="display: flex; gap: 0.75rem;"><span>04/16</span> <span>System Capture</span></div>
+                      <div style="display: flex; gap: 0.75rem;"><span>04/17</span> <span>Identity Resolved</span></div>
+                      <div style="display: flex; gap: 0.75rem;"><span>04/17</span> <span>Audit Alignment Locked</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grant Reporting Content -->
+              <div class="output-content hidden" id="out-grant">
+                <div class="institutional-artifact" style="border: 1px solid var(--border-alpha); padding: 1.5rem; background: #fff;">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem;">
+                    <span class="eyebrow" style="font-size: 0.5rem; margin: 0;">Grant Reporting // Infrastructure Capacity</span>
+                    <span class="sim-badge" style="font-size: 0.45rem; padding: 2px 6px;">REF_H0024</span>
+                  </div>
+                  <table style="width: 100%; font-size: 0.7rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #f9f9f9;"><td style="padding: 0.4rem 0; color: #666;">Milestone</td><td style="padding: 0.4rem 0; font-weight: 600;">Social Care Audit Alignment</td></tr>
+                    <tr style="border-bottom: 1px solid #f9f9f9;"><td style="padding: 0.4rem 0; color: #666;">Unit Attestation</td><td style="padding: 0.4rem 0; font-weight: 600;">1 Event / Validated</td></tr>
+                    <tr style="border-bottom: 1px solid #f9f9f9;"><td style="padding: 0.4rem 0; color: #666;">Compliance Lock</td><td style="padding: 0.4rem 0; font-weight: 600; color: var(--ccx-status-live);">SECURE</td></tr>
+                  </table>
+                </div>
+              </div>
+
+              <!-- SCN Content -->
+              <div class="output-content hidden" id="out-scn">
+                <div class="institutional-artifact" style="border: 1px solid var(--border-alpha); padding: 1.5rem; background: #fff;">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 0.5rem;">
+                    <span class="eyebrow" style="font-size: 0.5rem; margin: 0;">SCN / 1115 NY Waiver Output</span>
+                    <span class="sim-badge" style="font-size: 0.45rem; padding: 2px 6px;">NY-1115-SCN</span>
+                  </div>
+                  <div class="artifact-fields" style="display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.7rem;">
+                    <div style="background: rgba(0,0,0,0.02); padding: 0.5rem; border-radius: 2px;">
+                      <div style="font-size: 0.5rem; color: #999;">ACTIVITY CODE</div>
+                      <div style="font-weight: 600;">SCN-INT-001 (Initial Intake & Housing Refer)</div>
+                    </div>
+                    <div style="background: rgba(0,0,0,0.02); padding: 0.5rem; border-radius: 2px;">
+                      <div style="font-size: 0.5rem; color: #999;">DOMAINS ADDRESSED</div>
+                      <div style="font-weight: 600;">Housing Instability (Primary)</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- CMS Billing Content -->
+              <div class="output-content hidden" id="out-cms">
+                <div class="institutional-artifact" style="border: 1px solid #EF4444; padding: 1.5rem; background: rgba(239, 68, 68, 0.02);">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px solid rgba(239, 68, 68, 0.1); padding-bottom: 0.5rem;">
+                    <span class="eyebrow" style="font-size: 0.5rem; margin: 0; color: #EF4444;">CMS / Financial Billing Artifact</span>
+                    <span class="sim-badge" style="font-size: 0.45rem; padding: 2px 6px; background: #EF4444; color: #fff;">HITL_ENFORCED</span>
+                  </div>
+                  <div style="text-align: center; padding: 1rem 0;">
+                    <div style="font-size: 0.6rem; color: #EF4444; border: 1px dashed #EF4444; display: inline-block; padding: 0.5rem 1rem; text-transform: uppercase;">Awaiting Human Verification</div>
+                    <p style="font-size: 0.65rem; color: #666; margin-top: 1rem; line-height: 1.4;">
+                      Audit Alignment suggests eligibility for <strong>HCPC G9012</strong>. Financial lock active pending manual system-of-record reconciliation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Revised "WHY THIS MATTERS" Position -->
+            <div id="outputRationale" class="hidden" style="margin-top: auto; padding: 1rem; background: rgba(11, 31, 51, 0.02); border-left: 2px solid var(--ccx-outcome-gold); transition: opacity 1s; opacity: 0;">
+               <p style="font-size: 0.65rem; color: var(--ccx-frame-regulatory); line-height: 1.6; margin: 0; opacity: 0.8;">
+                Structured Audit Alignment produces a single reconciled representation of cross-system activity. This unified record drives automated outputs for grant reporting, 1115 SCN activity, and compliance exports—ensuring that every interaction is captured with audit-level precision.
+               </p>
+            </div>
           </div>
         </div>
         
@@ -259,355 +296,367 @@
         <svg class="causal-overlay" id="causalOverlay" style="position: absolute; inset: 0; pointer-events: none; z-index: 5;"></svg>
       </div>
 
-      <div style="margin-top: 1.5rem; text-align: center;">
-        <button id="triggerDemo" class="btn-institutional btn-glass" style="font-size: 1rem; padding: 1rem 2.5rem;">
-          Run Live Extraction
+      <div style="margin-top: 0.5rem; text-align: center;">
+        <button id="triggerDemo" class="btn-institutional btn-glass" style="font-size: 0.9rem; padding: 1rem 3rem;">
+          Initiate Forensically Aligned Trace
         </button>
       </div>
 
-      <!-- Normalization Transparency -->
-      <div class="normalization-transparency" style="margin-top: 2rem; border-top: 1px solid var(--border-alpha); padding-top: 1.5rem;">
-        <div class="transparency-header" style="margin-bottom: 1.5rem; color: var(--ccx-frame-regulatory); font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.05em;">
-          Normalization Transparency Model
-        </div>
-        <div class="transparency-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-          <article>
-            <h4 class="eyebrow" style="font-size: 0.6rem; margin-bottom: 0.5rem;">SSOT Transformation Model</h4>
-            <p style="font-size: 0.65rem; opacity: 0.6; line-height: 1.4;">Normalizes fragmented upstream inputs into a unified USCDI-compliant record before mapping to report schemas.</p>
-          </article>
-          <article>
-            <h4 class="eyebrow" style="font-size: 0.6rem; margin-bottom: 0.5rem;">De-identification Logic</h4>
-            <p style="font-size: 0.65rem; opacity: 0.6; line-height: 1.4;">Strict removal of PII/PHI identifiers at the ingestion edge. Medicaid IDs are tokenized via SHA-256 for audit tracking.</p>
-          </article>
-          <article>
-            <h4 class="eyebrow" style="font-size: 0.6rem; margin-bottom: 0.5rem;">HITL Constraint Model</h4>
-            <p style="font-size: 0.65rem; opacity: 0.6; line-height: 1.4;">Strict gating of billing and compliance outputs. No autonomous authority is granted for financial claims.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Transformation HUD v4.0 (MASTER PROMPT IMPLEMENTATION) -->
-    <section id="transformation-hud-v4" class="panel-hardened" style="margin-top: 1.5rem; padding: 2.5rem;">
-      <p class="eyebrow">Transformation HUD v4.0</p>
-      <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Clinical Data Transformation Engine</h2>
-      <p style="font-size: 0.75rem; opacity: 0.7; margin-bottom: 2rem; max-width: 600px;">
-        Accepts unstructured clinical documentation, applies deterministic PHI scrubbing and entity extraction, and synchronizes a locked SSOT across four statutory reporting layers.
-      </p>
-
-      <div class="hud-v4-layout">
-        <div class="v4-main-track">
-          <!-- Input & Extraction Flow -->
-          <div id="inputSection" class="v4-card">
-            <div class="controls-row" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; align-items: start;">
-              <div class="form-group">
-                <label class="eyebrow" for="scenarioSelector">Scenario Selection</label>
-                <select id="scenarioSelector" class="form-control" style="font-size: 0.7rem; height: auto; padding: 0.6rem;">
-                  <option value="" disabled selected>Choose a predefined case...</option>
-                  <option value="housing">Housing Instability</option>
-                  <option value="food">Food Insecurity</option>
-                  <option value="transport">Transportation Barrier</option>
-                  <option value="followup">Care Coordination Follow-up</option>
-                  <option value="behavioral">Behavioral Health Support</option>
-                  <option value="mixed">Mixed / Complex Case</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="eyebrow" for="transformationInput">Unstructured Clinical Note</label>
-                <textarea id="transformationInput" class="form-control" placeholder="Edit or replace this example to test custom inputs." style="min-height: 80px; font-size: 0.75rem; line-height: 1.5; padding: 0.75rem;"></textarea>
-                <p class="demo-disclosure" style="font-size: 0.55rem; color: var(--ccx-frame-regulatory); opacity: 0.5; margin-top: 0.5rem; font-family: var(--font-mono);">
-                  <strong>Demo Mode:</strong> This interface demonstrates core transformation logic using a constrained dataset.
-                </p>
-              </div>
-            </div>
-            <div style="margin-top: 0.5rem; display: flex; justify-content: flex-end;">
-              <button id="runTransformation" class="btn-institutional btn-glass" style="font-size: 0.75rem; padding: 0.6rem 2rem;">Run Live Extraction</button>
-            </div>
-          </div>
-
-          <!-- Detection Panel -->
-          <div id="detectionPanel" class="v4-card hidden" style="margin-top: 1.5rem; border-color: var(--ccx-status-live); background: rgba(34, 197, 94, 0.02);">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-              <p class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0;">Entity Detection Bridge</p>
-              <div class="phi-seal" style="font-family: var(--font-mono); font-size: 0.55rem; color: var(--ccx-status-live);">PHI SCRUBBED [✓]</div>
-            </div>
-            <div class="detection-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem;">
-              <div class="detect-item">
-                <span class="label">Need</span>
-                <span class="value" id="detect-need">—</span>
-                <span class="conf-badge" id="conf-need"></span>
-              </div>
-              <div class="detect-item">
-                <span class="label">Action</span>
-                <span class="value" id="detect-action">—</span>
-                <span class="conf-badge" id="conf-action"></span>
-              </div>
-              <div class="detect-item">
-                <span class="label">Provider</span>
-                <span class="value" id="detect-provider">—</span>
-                <span class="conf-badge" id="conf-provider"></span>
-              </div>
-              <div class="detect-item">
-                <span class="label">Status</span>
-                <span class="value" id="detect-status">—</span>
-                <span class="conf-badge" id="conf-status"></span>
-              </div>
-            </div>
-            <div class="confirmation-gate" style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: flex-end;">
-              <button id="editInputFromDetection" class="btn-institutional btn-secondary" style="font-size: 0.7rem; padding: 0.5rem 1.5rem;">Edit Input</button>
-              <button id="confirmSSOT" class="btn-institutional" style="font-size: 0.7rem; padding: 0.5rem 2rem; background: var(--ccx-status-live);">Confirm Structure</button>
-            </div>
-          </div>
-
-          <!-- Output Layers -->
-          <div id="outputSection" class="hidden" style="margin-top: 2rem;">
-            <div class="output-layers-v4" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-              <div class="out-col">
-                <div class="out-header">
-                  <p class="eyebrow" style="font-size: 0.55rem; margin-bottom: 0.5rem;">Grant Reporting</p>
-                  <span class="sim-badge">Simulated Output</span>
-                </div>
-                <div id="out-grant" class="out-body"></div>
-              </div>
-              <div class="out-col">
-                <div class="out-header">
-                  <p class="eyebrow" style="font-size: 0.55rem; margin-bottom: 0.5rem;">SCN / 1115</p>
-                  <span class="sim-badge">Simulated Output</span>
-                </div>
-                <div id="out-scn" class="out-body"></div>
-              </div>
-              <div class="out-col">
-                <div class="out-header">
-                  <p class="eyebrow" style="font-size: 0.55rem; margin-bottom: 0.5rem;">Compliance</p>
-                  <span class="sim-badge">Simulated Output</span>
-                </div>
-                <div id="out-compliance" class="out-body"></div>
-              </div>
-              <div class="out-col">
-                <div class="out-header">
-                  <p class="eyebrow" style="font-size: 0.55rem; margin-bottom: 0.5rem;">CMS Billing</p>
-                  <span class="sim-badge" style="background: #EF4444; color: #fff;">HITL LOCKED</span>
-                </div>
-                <div id="out-billing" class="out-body out-hitl"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Audit Panel -->
-      <div id="auditPanel" class="hidden" style="margin-top: 1.5rem; border-top: 1px solid var(--border-alpha); padding-top: 1rem;">
-        <details>
-          <summary style="cursor: pointer; list-style: none; display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.6rem; color: var(--ccx-frame-regulatory); text-transform: uppercase;">
-            <span class="toggle-arrow" style="font-size: 0.8rem;">▶</span> Audit Trace (Read-Only)
-          </summary>
-          <div id="auditLogContainer" class="audit-log-viewer" style="margin-top: 1rem; padding: 1rem; background: var(--ccx-trace-terminal); color: #888; border-radius: 4px; font-family: var(--font-mono); font-size: 0.6rem; max-height: 150px; overflow-y: auto;">
-          </div>
-          <p class="demo-disclosure" style="margin-top: 0.5rem; font-size: 0.55rem; opacity: 0.6; font-family: var(--font-mono);">
-            Deterministic demo trace. Reflects transformation logic, not full production data integrations.
-          </p>
-        </details>
-      </div>
+      <!-- Normalization Transparency (Legacy HUD removal) -->
     </section>
 
     <!-- Trust Layer -->
-    <section class="trust-signals">
+    <section class="trust-signals" style="margin-top: 0.5rem;">
       <div class="trust-item">Audit-ready by design</div>
-      <div class="trust-item">WORM-locked documentation</div>
       <div class="trust-item">Aligned with 2026 NY compliance</div>
       <div class="trust-item">Human verification enforced</div>
     </section>
 
-    <!-- Advanced Diagnostic Engine (Existing Wiring Preserved) -->
-    <section id="advanced-diagnostic" class="panel-hardened" style="margin-top: 1.5rem;">
-      <p class="eyebrow">Advanced Diagnostic Engine</p>
-      <h2>SCN Stability & Revenue Modeling</h2>
-      <p style="opacity: 0.7; margin-bottom: 3rem;">
-        Preserving the full deterministic modeling layer for SCN leadership and Health Plan stakeholders. 
-        Adjust parameters below to calculate systemic audit exposure.
+    <!-- DOCUMENTATION INTEGRITY MODULE (RE-INTRODUCED) -->
+    <section id="documentation-module" class="panel-hardened" style="margin-top: 1rem; padding: 3rem; background: var(--ccx-bg-archival); border-top: 4px solid var(--ccx-frame-regulatory);">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+        <div>
+          <p class="eyebrow">Documentation Sidecar</p>
+          <h2 style="margin: 1rem 0;">Documentation Integrity</h2>
+          <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6;">
+            CCX establishes a baseline of documentation defensibility by analyzing historical signals across disparate systems. This identifies structural gaps that impact audit defensibility and reporting completeness.
+          </p>
+          
+          <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1.5rem;">
+            <div class="doc-health-row">
+              <div style="display: flex; justify-content: space-between; font-size: 0.6rem; font-family: var(--font-mono); margin-bottom: 0.4rem;">
+                <span>SCHEMA Audit Alignment (SNOMED/ICD)</span>
+                <span style="color: var(--ccx-status-live);">HIGH FIDELITY</span>
+              </div>
+              <div style="height: 4px; background: rgba(0,0,0,0.1); width: 100%;">
+                <div style="height: 100%; background: var(--ccx-status-live); width: 92%;"></div>
+              </div>
+            </div>
+            <div class="doc-health-row">
+              <div style="display: flex; justify-content: space-between; font-size: 0.6rem; font-family: var(--font-mono); margin-bottom: 0.4rem;">
+                <span>ENTITY RESOLUTION (CROSS-SYSTEM)</span>
+                <span style="color: var(--ccx-status-live);">DETERMINISTIC</span>
+              </div>
+              <div style="height: 4px; background: rgba(0,0,0,0.1); width: 100%;">
+                <div style="height: 100%; background: var(--ccx-status-live); width: 88%;"></div>
+              </div>
+            </div>
+            <div class="doc-health-row">
+              <div style="display: flex; justify-content: space-between; font-size: 0.6rem; font-family: var(--font-mono); margin-bottom: 0.4rem;">
+                <span>TEMPORAL SEQUENCE INTEGRITY</span>
+                <span style="color: var(--ccx-outcome-gold);">VALIDATED</span>
+              </div>
+              <div style="height: 4px; background: rgba(0,0,0,0.1); width: 100%;">
+                <div style="height: 100%; background: var(--ccx-outcome-gold); width: 74%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background: #fff; padding: 2rem; border: 1px solid var(--border-alpha); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          <div class="eyebrow" style="margin-bottom: 1.5rem;">Audit Trace Snapshot</div>
+          <div style="font-family: var(--font-mono); font-size: 0.6rem; color: #666; line-height: 1.8;">
+            <div style="border-bottom: 1px solid #f0f0f0; padding: 0.5rem 0;">[SYSTEM_01] Encounter mapped to USCDI profile.</div>
+            <div style="border-bottom: 1px solid #f0f0f0; padding: 0.5rem 0;">[SYSTEM_02] Social screening text normalized.</div>
+            <div style="border-bottom: 1px solid #f0f0f0; padding: 0.5rem 0;">[LOGIC_01] Duplicate event reconciled (Diff: 0.002s).</div>
+            <div style="border-bottom: 1px solid #f0f0f0; padding: 0.5rem 0;">[LOGIC_02] Attribute sequence verified against claim log.</div>
+            <div style="padding: 0.5rem 0; color: var(--ccx-status-live);">✓ RECORD Audit Alignment SECURE</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operational Audit Risk Modeling (Scenario-Based Diagnostic) -->
+    <section id="advanced-diagnostic" class="panel-hardened" style="margin-top: 2rem;">
+      <p class="eyebrow" style="display: flex; justify-content: space-between; align-items: center;">
+        <span>Operational Audit Diagnostic (Scenario-Based)</span>
+        <span style="font-size: 0.55rem; opacity: 0.6; text-transform: none; font-weight: 400;">Interpretation layer for decision support—not financial reporting or billing system.</span>
+      </p>
+      <h2>Operational Audit Diagnostic</h2>
+      
+      <div class="urgency-banner" style="display: none;"></div>
+
+      <p style="opacity: 0.7; margin-bottom: 2rem;">
+        These outputs illustrate how documentation conditions may influence audit exposure and operational Audit Alignment. Directional estimates based on research benchmarks.
       </p>
 
       <div class="bento-stack">
         <section class="panel-hardened bento-full" style="padding: 2rem; border-top-width: 2px;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
-            <p class="eyebrow">Diagnostic Input</p>
+            <p class="eyebrow">Risk Parameter Configuration</p>
             <span id="persona-label-display" class="hud-label" style="font-size: 0.6rem; color: var(--ccx-outcome-gold);">SCN / Executive</span>
           </div>
           <div class="persona-switcher" id="personaSwitcher">
-            <button type="button" class="persona-btn" data-persona="cbo">CBO / Operator</button>
+            <button type="button" class="persona-btn" data-persona="cbo">CBO / Provider Node</button>
             <button type="button" class="persona-btn active" data-persona="scn">SCN / Executive</button>
-            <button type="button" class="persona-btn" data-persona="payer">Health Plan / Payer</button>
+            <button type="button" class="persona-btn" data-persona="payer">MCO / Risk Owner</button>
           </div>
 
           <div class="controls-grid">
             <div class="control-group">
               <label class="eyebrow" for="volRange">Monthly Encounter Volume</label>
-              <input id="volRange" type="range" min="1" max="100000" value="1500" />
+              <input id="volRange" type="range" min="1" max="100000" value="400" />
             </div>
             <div class="control-group">
               <label class="eyebrow" for="volInput">Volume (numeric)</label>
-              <input id="volInput" type="number" min="1" max="100000" value="1500" class="form-control" />
+              <input id="volInput" type="number" min="1" max="100000" value="400" placeholder="400" class="form-control" />
             </div>
             <div class="control-group">
               <button id="runScan" type="button" class="btn-institutional">Generate Stability Profile</button>
             </div>
           </div>
+          <p style="font-size: 0.65rem; opacity: 0.6; margin-top: 1rem; font-style: italic;">
+            Pre-filled with conservative research-based benchmarks from SCN operations and health informatics studies. Adjust to reflect your organization.
+          </p>
         </section>
       </div>
 
       <div class="bento-stack" style="margin-top: 2rem;">
         <section class="panel-hardened bento-main" style="padding: 2rem; border-top-width: 2px;">
-          <p class="eyebrow">Financial Impact</p>
+          <p class="eyebrow">Audit Recoupment Exposure Modeling</p>
           <div class="kpi-grid">
             <article class="kpi-card">
-              <p class="kpi-label">Operational Leakage</p>
+              <p class="kpi-label">Documentation-Driven Financial Exposure</p>
               <p id="val-operational" class="kpi-value">$0</p>
               <p id="band-operational" class="hud-value" style="font-size: 0.6rem; opacity: 0.5;">$0 – $0</p>
+              <p style="font-size: 0.6rem; opacity: 0.6; margin-top: 0.5rem;">Highlights where documentation conditions may create exposure, informing where corrective action may be required.</p>
             </article>
             <article class="kpi-card">
-              <p class="kpi-label">Denial & Rework Burden</p>
+              <p class="kpi-label">Audit-Induced Administrative Burden</p>
               <p id="val-denial" class="kpi-value">$0</p>
               <p id="band-denial" class="hud-value" style="font-size: 0.6rem; opacity: 0.5;">$0 – $0</p>
+              <p style="font-size: 0.6rem; opacity: 0.6; margin-top: 0.5rem;">Identifies where Documentation Integrity Secondary Operational Benefits create administrative strain and funding misalignment.</p>
             </article>
             <article class="kpi-card">
-              <p class="kpi-label">Projected Audit Exposure</p>
+              <p class="kpi-label">Projected Recoupment Exposure</p>
               <p id="val-audit" class="kpi-value">$0</p>
               <p id="band-audit" class="hud-value" style="font-size: 0.6rem; opacity: 0.5;">$0 – $0</p>
+              <p style="font-size: 0.6rem; opacity: 0.6; margin-top: 0.5rem;">Illustrates how minor documentation gaps translate into material recoupment risk under extrapolation models.</p>
             </article>
             <article class="kpi-card" style="border-left: 2px solid var(--ccx-outcome-gold); background: rgba(212, 175, 55, 0.05);">
-              <p class="kpi-label" style="color: var(--ccx-outcome-gold);">Total Systemic Risk</p>
+              <p class="kpi-label" style="color: var(--ccx-outcome-gold);">Total Estimated Audit Recoupment Exposure</p>
               <p id="val-total" class="kpi-value" style="color: var(--ccx-outcome-gold); font-weight: 700;">$0 – $0</p>
-              <p class="hud-value" style="font-size: 0.6rem; opacity: 0.5;">Aggregate Exposure Band</p>
+              <p class="hud-value" style="font-size: 0.6rem; opacity: 0.5;">Aggregate Recoupment Risk Band</p>
             </article>
           </div>
 
           <!-- Forensic Interpretations -->
           <div id="interpretation" class="interpretation-layer" style="margin-top: 2rem; padding: 1.5rem; background: rgba(255,255,255,0.02); border-left: 2px solid var(--ccx-status-live); min-height: 80px; font-size: 0.85rem; line-height: 1.6; opacity: 0.8;">
-            <p>Select a volume and run scan to generate stakeholder-specific interpretations.</p>
+            <p>Select volume and run Audit Alignment to observe stakeholder-specific interpretations.</p>
+          </div>
+          
+          <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-alpha); padding-top: 1rem;">
+            <p style="font-size: 0.75rem; opacity: 0.8; margin-bottom: 0.5rem; font-weight: 500;">
+              Translates existing Documentation Integrity conditions into scenario-based capacity and Secondary Operational Benefit estimates without altering underlying systems.
+            </p>
+            <p style="font-size: 0.7rem; opacity: 0.6; font-style: italic;">
+              DECISION LINKAGE: These signals help identify where Documentation Integrity changes, documentation improvements, or capacity investment may be required.
+            </p>
+            <p style="font-size: 0.65rem; opacity: 0.5; margin-top: 1rem;">
+              OUTPUT DISCLAIMER: Outputs are directional estimates based on research benchmarks and configurable assumptions. They are intended for planning and scenario interpretation, not financial projection.
+            </p>
           </div>
         </section>
 
         <section class="panel-hardened bento-side grid-section" style="padding: 2rem; border-top-width: 2px;">
-          <p class="eyebrow">Network Intelligence</p>
+          <p class="eyebrow">Network Defensibility</p>
           <div id="scenarioBox" style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-alpha);">
             <!-- Scenario hydration -->
           </div>
           <div id="networkGrid" class="fidelity-grid"></div>
         </section>
       </div>
+
+      <div class="decision-context-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 2rem;">
+        <div class="panel-hardened" style="padding: 1.25rem; background: rgba(0,0,0,0.2);">
+          <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.75rem;">Assumptions</h4>
+          <p style="font-size: 0.7rem; opacity: 0.8; line-height: 1.5;">Reflects 15–30m manual screening baselines vs. structured data reuse. Administrative overhead calibrated to early-stage SCN pilots under fragmented integration.</p>
+        </div>
+        <div class="panel-hardened" style="padding: 1.25rem; background: rgba(0,0,0,0.2);">
+          <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.75rem;">Research Benchmarks</h4>
+          <p style="font-size: 0.7rem; opacity: 0.8; line-height: 1.5;">Aligned with AMIA 25x5 documentation burden reduction initiatives and social care coordination time-and-motion studies (~38% admin overhead).</p>
+        </div>
+        <div class="panel-hardened" style="padding: 1.25rem; background: rgba(0,0,0,0.2);">
+          <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.75rem;">NYHER Audit Alignment</h4>
+          <p style="font-size: 0.7rem; opacity: 0.8; line-height: 1.5;">Figures represent Year 1–2 realistic expectations for NY SCNs. Eligible for infrastructure capacity-building investment. <a href="methodology.html" style="color: inherit; text-decoration: underline;">Full Methodology →</a></p>
+        </div>
+      </div>
     </section>
 
     <div class="bento-stack">
-      <section id="handshake" class="panel-hardened bento-full inquiry-module">
-        <p class="eyebrow">Conversion Endpoint</p>
-        <h2>Technical Handshake</h2>
-        <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2.5rem;">
-          Initiate a secure inquiry regarding audit defense, network stabilization, or VBP alignment. 
-          All submissions are processed via secure API handshake.
-        </p>
-        
-        <form id="inquiryForm">
+      <section class="panel-hardened bento-full" style="background: var(--ccx-frame-regulatory); color: #FFFFFF; border-top-color: var(--ccx-status-live); margin-bottom: 1.5rem;">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem;">
+          <div style="max-width: 600px;">
+            <p class="eyebrow" style="color: var(--ccx-status-live);">Governance & Funding</p>
+            <h2 style="color: #FFFFFF; margin-bottom: 1rem;">Eligible Infrastructure Investment</h2>
+            <p style="opacity: 0.8; font-size: 0.95rem;">
+              Eligible as a capacity-building and infrastructure investment under NYHER, supporting network-wide documentation and reporting integrity.
+            </p>
+          </div>
+          <a href="#handshake" class="btn-institutional" style="background: var(--ccx-status-live); border: none; font-weight: 600;">Secure Infrastructure Guidance</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Cross-System Mapping Overlay -->
+    <section id="system-mapping-overlay" class="panel-hardened" style="margin-top: 2.5rem; padding: 2.5rem; border-left: 4px solid var(--ccx-status-live);">
+      <p class="eyebrow" style="color: var(--ccx-status-live);">Infrastructure Layer</p>
+      <h2 style="margin-bottom: 1.5rem;">Cross-System Mapping Overlay</h2>
+      <p style="opacity: 0.7; font-size: 0.85rem; margin-bottom: 2.5rem; max-width: 700px;">
+        CCX maps disparate system signals into unified reporting outputs without requiring system migration. This overlay illustrates the signal flow between core infrastructure components.
+      </p>
+
+      <div class="mapping-visualization" style="display: flex; align-items: center; gap: 1rem; position: relative; flex-wrap: wrap;">
+        <!-- EHR -->
+        <div class="mapping-node" style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--border-alpha); background: rgba(255,255,255,0.02); text-align: center; border-radius: 4px;">
+          <p class="eyebrow" style="margin-bottom: 1rem;">Clinical EHR</p>
+          <div style="font-family: var(--font-mono); font-size: 0.6rem; opacity: 0.5;">Unstructured Notes<br>ICD-10 Signals</div>
+        </div>
+
+        <div class="mapping-arrow" style="opacity: 0.3; font-size: 1.5rem;">→</div>
+
+        <!-- CBO -->
+        <div class="mapping-node" style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--ccx-status-live); background: rgba(34, 197, 94, 0.05); text-align: center; border-radius: 4px;">
+          <p class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 1rem;">CBO Systems</p>
+          <div style="font-family: var(--font-mono); font-size: 0.6rem;">Social Determinant Signals<br>Referral Loop Data</div>
+        </div>
+
+        <div class="mapping-arrow" style="opacity: 0.3; font-size: 1.5rem;">→</div>
+
+        <!-- Reporting -->
+        <div class="mapping-node" style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--ccx-outcome-gold); background: rgba(212, 175, 55, 0.05); text-align: center; border-radius: 4px;">
+          <p class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 1rem;">Reporting Outputs</p>
+          <div style="font-family: var(--font-mono); font-size: 0.6rem;">SCN Audit Alignment<br>Compliance Evidence</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reporting Integrity Framework -->
+    <section id="reporting-alignment-layer" class="panel-hardened" style="margin-top: 2rem; padding: 2.5rem; background: rgba(0,0,0,0.2);">
+      <p class="eyebrow">Informational Module</p>
+      <h2 style="margin-bottom: 1.5rem;">Reporting Integrity Framework</h2>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <article>
+          <h4 class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 0.75rem;">Grant Fulfillment</h4>
+          <p style="font-size: 0.75rem; opacity: 0.7; line-height: 1.6;">
+            Standardizes reporting for capacity-building grants, ensuring that all infrastructure investments are documented against core NYHER milestones.
+          </p>
+        </article>
+        <article>
+          <h4 class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 0.75rem;">SCN / Waiver Compliance</h4>
+          <p style="font-size: 0.75rem; opacity: 0.7; line-height: 1.6;">
+            Aligns social care documentation with the NY 1115 Waiver requirements, facilitating automated mapping to mandatory SCN reporting grids.
+          </p>
+        </article>
+        <article>
+          <h4 class="eyebrow" style="color: var(--ccx-outcome-gold); margin-bottom: 0.75rem;">Compliance Export Structure</h4>
+          <p style="font-size: 0.75rem; opacity: 0.7; line-height: 1.6;">
+            Generates standardized compliance exports designed for submission-readiness, reducing manual administrative processing of network activity logs.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Technical Handshake Inquiry Form -->
+    <section id="handshake" class="panel-hardened bento-full inquiry-module" style="margin-top: 1.5rem; scroll-margin-top: 100px;">
+      <p class="eyebrow">Inquiry Endpoint</p>
+      <h2>Technical Handshake</h2>
+      <p style="font-size: 0.85rem; opacity: 0.7; margin-bottom: 2.5rem;">
+        Initiate a secure inquiry regarding audit readiness, network risk visibility, or NYHER capacity-building alignment. 
+        Analyze historical records to identify gaps in audit defensibility—without disrupting workflows.
+      </p>
+      
+      <form id="inquiryForm">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" class="form-control" placeholder="e.g. Dr. Jordan Smith" required>
+            <input type="text" id="name" class="form-control" required>
           </div>
           
           <div class="form-group">
             <label for="email">Professional Email</label>
-            <input type="email" id="email" class="form-control" placeholder="name@organization.org" required>
+            <input type="email" id="email" class="form-control" required>
           </div>
-          
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;">
           <div class="form-group">
             <label for="org">Organization (Optional)</label>
-            <input type="text" id="org" class="form-control" placeholder="e.g. Hudson Valley SCN">
+            <input type="text" id="org" class="form-control">
           </div>
           
           <div class="form-group">
             <label for="focus">Inquiry Focus</label>
             <select id="focus" class="form-control" required>
-              <option value="" disabled selected>Select focus area...</option>
+              <option value="" disabled selected>Select focus area</option>
               <option value="audit">Audit Defense & Compliance</option>
-              <option value="network">Network Fidelity & Stabilization</option>
+              <option value="network">Network Integrity & Audit Readiness</option>
               <option value="vbp">VBP Alignment Strategy</option>
               <option value="other">Other Technical Inquiry</option>
             </select>
           </div>
-          
-          <div class="form-group">
-            <label for="message">Inquiry Details</label>
-            <textarea id="message" class="form-control" placeholder="Describe your specific operational focus..." required></textarea>
-          </div>
-          
-          <div id="formFeedback" class="hidden" style="margin-bottom: 1.5rem;"></div>
-          
-          <button type="submit" class="btn-institutional btn-glass" style="width: 100%;">Submit Technical Inquiry</button>
-        </form>
-      </section>
-    </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Inquiry Details</label>
+          <textarea id="message" class="form-control" placeholder="Describe your specific operational focus..." required style="min-height: 120px;"></textarea>
+        </div>
+        
+        <div id="formFeedback" class="hidden" style="margin-bottom: 1.5rem;"></div>
+        
+        <button type="submit" class="btn-institutional btn-glass" style="width: 100%; padding: 1.25rem;">Submit Technical Inquiry</button>
+      </form>
+    </section>
 
+    <!-- Context Section -->
+    <section style="margin-top: 1.5rem; border-top: 1px solid var(--border-alpha); padding-top: 1.5rem;">
+      <p style="font-size: 0.7rem; opacity: 0.6; font-style: italic; line-height: 1.4;">
+        This example demonstrates structured Audit Alignment of existing system outputs. It does not modify source systems or generate clinical or billing decisions.
+      </p>
+    </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="site-footer" style="margin-top: 1rem;">
     <div class="container">
-      <div class="footer-cta-row">
-        <a href="#handshake" class="footer-handshake-btn">Initiate Technical Handshake</a>
-      </div>
-      <div class="footer-grid">
-        <div class="footer-column">
-          <h4>Statutory Alignment</h4>
-          <p>NYS 1115 Waiver Framework</p>
-          <p>18 NYCRR §521 Compliance</p>
-          <p>USCDI v3 Data Standards</p>
-          <p>HIPAA Privacy Rule</p>
-        </div>
-        <div class="footer-column">
-          <h4>System Topology</h4>
-          <p>Upstream Documentation</p>
-          <p>Parallel Case Management</p>
-          <p>Downstream Audit Defense</p>
-          <p>VBP Strategy Alignment</p>
-        </div>
-        <div class="footer-column">
-          <h4>Technical Handshake</h4>
-          <p>API Documentation</p>
-          <p>Integration Sandbox</p>
-          <p>Security Whitepaper</p>
-          <p>System Status</p>
-        </div>
-        <div class="footer-column">
-          <h4>Governance</h4>
-          <p>The Clinical Data Transformation Engine (CDTE) is a deterministic modeling layer for Social Care Networks.</p>
-          <div class="footer-integrity" style="margin-top: 1rem;">
-            <div class="seal-badge">Logic Verified</div>
-            <span id="logic-verified-status" style="font-size: 0.6rem; font-family: var(--font-mono); display: block; margin-top: 0.25rem;">LOGIC VERIFIED</span>
-            <span style="font-size: 0.6rem; opacity: 0.6;">SHA-256 SEALED</span>
+      <div class="footer-top">
+          <div class="footer-brand-zone">
+            <a href="index.html" class="footer-brand">CCX</a>
+            <p class="footer-description">
+              All outputs are directional interpretations of cross-system signals based on configurable assumptions. CCX does not modify source systems and does not generate financial or clinical billing outputs.
+            </p>
+            <div style="margin-top: 1.5rem;">
+              <a href="#handshake" class="btn-institutional btn-secondary" style="font-size: 0.65rem; padding: 0.6rem 1.2rem; border-color: rgba(255,255,255,0.2); color: #FFF; background: transparent;">Initiate Technical Handshake</a>
+            </div>
           </div>
-        </div>
+        <nav class="footer-nav-grid" aria-label="Footer navigation">
+          <div class="footer-nav-col">
+            <h4>Framework</h4>
+            <ul>
+              <li><a href="methodology.html">How It Works</a></li>
+              <li><a href="network.html">Network Performance</a></li>
+              <li><a href="audit.html">Audit Trace</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-col">
+            <h4>Compliance</h4>
+            <ul>
+              <li><a href="#">18 NYCRR §521</a></li>
+              <li><a href="#">USCDI v3 Standards</a></li>
+              <li><a href="#">Privacy Rule</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
-
-      <div class="citation-block">
-        <div class="citation-item" id="cit-1">
-          <span class="citation-ref">[1]</span>
-          <span>Clinical Data Transformation Engine (CDTE) Technical Specification v2.4.2-NY.</span>
-        </div>
-        <div class="citation-item" id="cit-2">
-          <span class="citation-ref">[2]</span>
-          <span>New York State 1115 Waiver Amendment: Social Care Networks (SCN) Program Authority.</span>
-        </div>
-        <div class="citation-item">
-          <span class="citation-ref">[3]</span>
-          <span>18 NYCRR §521 - Compliance Programs for Medical Assistance Providers.</span>
-        </div>
-      </div>
-      
+      <div class="footer-divider"></div>
       <div class="footer-bottom">
-        <div style="opacity: 0.6;">
-          &copy; 2026 Community Claims Exchange | Regulatory Infrastructure Layer
+        <div class="footer-bottom-links">
+          <span>© 2026 Community Claims Exchange</span>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
         </div>
-        <div class="hud-layer" style="color: var(--ccx-outcome-gold);">
-          <span>All calculations are deterministic and reproducible. No user data is stored or transmitted.</span>
-          <span>Model: v2.4.2-NY</span>
-          <span>TS: 2026-04-15T12:40:00Z</span>
+        <div class="footer-metadata">
+          <span>Model: v2.4.2-NY</span><br>
+          <span>Logic Verified: SHA-256 SEALED</span>
         </div>
       </div>
     </div>

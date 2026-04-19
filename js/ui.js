@@ -19,9 +19,9 @@ export function updatePersonaUIState(activePersona) {
   const display = document.getElementById('persona-label-display');
   if (display) {
     const labels = {
-      'cbo': 'CBO / Operator',
+      'cbo': 'CBO / Provider Node',
       'scn': 'SCN / Executive',
-      'payer': 'Health Plan / Payer'
+      'payer': 'MCO / Risk Owner'
     };
     display.textContent = labels[activePersona.toLowerCase()] || activePersona;
   }
@@ -72,19 +72,19 @@ export function renderInterpretation(persona, state) {
 
   switch (normalizedPersona) {
     case 'cbo':
-      p1.textContent = `At a monthly volume of ${volume.toLocaleString()} encounters, front-line documentation leakage creates quantifiable rework burden.`;
-      p2.textContent = `Projected operational loss is ${formatCurrency(operational)}, directly impacting resource allocation.`;
+      p1.textContent = `At a monthly volume of ${volume.toLocaleString()} encounters, cross-system alignment signals identify fragmented integrity patterns. This represents the administrative capacity captured or lost through existing documentation structure.`;
+      p2.textContent = `Analysis reconstructs a projected operational friction of ${formatCurrency(operational)}, informing where corrective action may be required to protect funding stability.`;
       break;
     case 'scn':
-      p1.textContent = `Network aggregate fidelity indicates a total liability exposure of ${formatCurrency(totalLoss)}.`;
-      p2.textContent = `Targeted audits could trigger an extrapolated clawback of ${formatCurrency(audit)}.`;
+      p1.textContent = `Network aggregate documentation signals indicate a systemic liability exposure of ${formatCurrency(totalLoss)}. Signal variability suggests prioritized documentation review for specific system touchpoints.`;
+      p2.textContent = `These signals help interpret where system-wide workflow changes or capacity investment may be required to mitigate compliance risk across the SCN.`;
       break;
     case 'payer':
-      p1.textContent = `Systemic MEAT failure rates project a compliance exposure reaching ${formatCurrency(totalLoss + audit)}.`;
-      p2.textContent = `Ledger enforcement is recommended to minimize 1115 Waiver audit exposure.`;
+      p1.textContent = `Systemic signal inconsistencies project a Medicaid recoupment risk reaching ${formatCurrency(totalLoss + audit)}. Network status signals are directional interpretations based on research benchmarks for Year 1-2 SCN conditions.`;
+      p2.textContent = `Documentation alignment and integrity management are recommended to minimize NYHER reporting exposure via existing systems.`;
       break;
     default:
-      p1.textContent = 'Select a stakeholder persona to view interpretation.';
+      p1.textContent = 'Select a stakeholder persona to view sidecar interpretation.';
       break;
   }
   container.append(p1, p2);
@@ -100,7 +100,7 @@ export function renderNodeTable(container, nodes, limit = 5) {
     const tr = document.createElement('tr');
     
     const tdId = document.createElement('td');
-    tdId.textContent = `Node ${node.id}`;
+    tdId.textContent = `Touchpoint ${node.id}`;
     
     const tdScreening = document.createElement('td');
     tdScreening.textContent = (node.screening * 100).toFixed(1) + '%';
@@ -110,11 +110,12 @@ export function renderNodeTable(container, nodes, limit = 5) {
     
     const tdFidelity = document.createElement('td');
     tdFidelity.textContent = (node.fidelity * 100).toFixed(1) + '%';
+    tdFidelity.title = "Cross-System Integrity Score";
     
     const tdTier = document.createElement('td');
     tdTier.textContent = node.tier;
     
-    if (node.tier === 'Stable') {
+    if (node.tier === 'High Integrity') {
       tdTier.style.color = 'var(--ccx-status-live)';
     } else if (node.tier === 'Documentation Risk') {
       tdTier.style.color = 'var(--ccx-outcome-gold)';
@@ -161,14 +162,14 @@ export function renderNetworkGrid(containerId, nodes) {
   nodes.forEach((node, index) => {
     const div = document.createElement('div');
     const isPulse = index % 15 === 0; // Add some "Live" pulse nodes
-    div.className = `node ${node.tier === 'Stable' ? 'stable' : node.tier === 'Documentation Risk' ? 'medium' : 'high'} ${isPulse ? 'pulse' : ''}`;
-    div.title = `NODE_${node.id} | FIDELITY: ${(node.fidelity * 100).toFixed(1)}% | TIER: ${node.tier.toUpperCase()}`;
+    div.className = `node ${node.tier === 'High Integrity' ? 'stable' : node.tier === 'Documentation Risk' ? 'medium' : 'high'} ${isPulse ? 'pulse' : ''}`;
+    div.title = `TOUCHPOINT_${node.id} | CROSS_SYSTEM_INTEGRITY: ${(node.fidelity * 100).toFixed(1)}% | TIER: ${node.tier.toUpperCase()}`;
     
     // Forensic hover detail
     div.addEventListener('mouseenter', () => {
       const display = document.getElementById('node-forensic-display');
       if (display) {
-        display.textContent = `SURVEILLANCE_ACTIVE: NODE_${node.id} [${node.tier.toUpperCase()}] | FIDELITY_${(node.fidelity * 100).toFixed(1)}%`;
+        display.textContent = `ALIGNMENT_LAYER_ACTIVE: TOUCHPOINT_${node.id} [${node.tier.toUpperCase()}] | SYSTEM_INTEGRITY_${(node.fidelity * 100).toFixed(1)}%`;
       }
     });
 
@@ -187,11 +188,11 @@ export function renderScenario(payload) {
   if (!container) return;
   container.textContent = '';
   const h3 = document.createElement('h3');
-  h3.textContent = 'Network Stability Scenario';
+  h3.textContent = 'Operational Alignment Profile';
   h3.className = 'eyebrow';
   h3.style.marginBottom = '1rem';
   const p = document.createElement('p');
-  p.textContent = `At ${payload.volume.toLocaleString()} encounters, the network exhibits a systemic documentation risk profile.`;
+  p.textContent = `At ${payload.volume.toLocaleString()} encounters, the system observes a fragmented documentation alignment pattern. This directional interpretation illustrates potential exposure pathways across existing infrastructure.`;
   container.append(h3, p);
 }
 
@@ -227,8 +228,8 @@ export function renderStateBridgeSummary(containerId, state) {
   table.className = 'results-table';
   const rows = [
     ['Monthly Volume', state.volume.toLocaleString()],
-    ['Operational Leakage', formatCurrency(state.operational)],
-    ['Audit Exposure', formatCurrency(state.audit)]
+    ['Documentation Rework Risk', formatCurrency(state.operational)],
+    ['Estimated Audit Exposure', formatCurrency(state.audit)]
   ];
   rows.forEach(([label, value]) => {
     const tr = document.createElement('tr');
@@ -284,60 +285,8 @@ export function showNoState(containerId) {
     container.textContent = '';
     const p = document.createElement('p');
     p.className = 'no-state-msg';
-    p.textContent = 'Awaiting data — run the diagnostic on the Dashboard first.';
+    p.textContent = 'Awaiting data — run the analysis on index page diagnostic first.';
     container.appendChild(p);
   }
 }
 
-export function initHudNote() {
-  const group = document.getElementById('hud-note-group');
-  const panel = document.getElementById('hud-note-panel');
-  const display = document.getElementById('hud-note-display');
-  const customInput = document.getElementById('hud-note-custom');
-  const options = document.querySelectorAll('.hud-note-option');
-
-  if (!group || !panel || !display) return;
-
-  // Load saved note
-  const savedNote = localStorage.getItem('ccx_system_note');
-  if (savedNote) {
-    display.textContent = savedNote;
-    if (customInput) customInput.value = savedNote;
-  }
-
-  // Toggle panel
-  group.addEventListener('click', (e) => {
-    e.stopPropagation();
-    panel.classList.toggle('hidden');
-  });
-
-  // Handle preset options
-  options.forEach(opt => {
-    opt.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const note = opt.dataset.note;
-      display.textContent = note;
-      localStorage.setItem('ccx_system_note', note);
-      panel.classList.add('hidden');
-      if (customInput) customInput.value = '';
-    });
-  });
-
-  // Handle custom input
-  if (customInput) {
-    customInput.addEventListener('click', (e) => e.stopPropagation());
-    customInput.addEventListener('input', (e) => {
-      const note = e.target.value || 'Normal Operations';
-      display.textContent = note;
-      localStorage.setItem('ccx_system_note', note);
-    });
-    customInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') panel.classList.add('hidden');
-    });
-  }
-
-  // Close on click outside
-  document.addEventListener('click', () => {
-    panel.classList.add('hidden');
-  });
-}

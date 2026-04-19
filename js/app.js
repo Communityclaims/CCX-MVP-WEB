@@ -34,14 +34,14 @@ import { initTransformationHUD } from './transformation.js';
 
 const session = {
   activePersona: 'scn',
-  volume: 1500,
+  volume: 400,
   diagnosticPayload: null
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('[SYSTEM] CCXNY Orchestrator Booting...');
 
-  // 1. Initialize Ledger (WORM)
+  // 1. Initialize Audit Trace
   await loadOrInitializeLedger();
 
   // 2. StateBridge Hydration
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   } else if (path.includes('methodology.html') || path === '/methodology') {
     // Methodology page logic if any
   } else {
-    handleDashboardPageHydration();
+    handleIntelligencePageHydration();
   }
 
   // 3. Global HUD Wiring
@@ -71,15 +71,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   // 4. Logic Verification Signal
   updateLogicVerifiedStatus(true);
 
-  // 5. HUD Annotation Initialization
-  initHudNote();
-
   // 6. Landing Page Demo Initialization
   initLandingDemo();
   initTransformationHUD();
 });
 
-function handleDashboardPageHydration() {
+function handleIntelligencePageHydration() {
   const savedPayload = loadState('diagnostic');
   const savedPersona = loadState('persona');
 
@@ -91,7 +88,7 @@ function handleDashboardPageHydration() {
   }
 
   if (savedPayload) {
-    session.volume = savedPayload.volume || 1500;
+    session.volume = savedPayload.volume || 400;
     session.diagnosticPayload = savedPayload;
     if (window.location.hash !== '#workflow-engine') {
        orchestrateUI(savedPayload);
@@ -101,6 +98,9 @@ function handleDashboardPageHydration() {
     const volRange = document.getElementById('volRange');
     if (volInput) volInput.value = session.volume;
     if (volRange) volRange.value = session.volume;
+  } else {
+    // RUN INITIAL DIAGNOSTIC WITH DEFAULT VOLUME IF NO SAVED STATE
+    runDiagnostic();
   }
 }
 
@@ -141,8 +141,8 @@ async function runDiagnostic() {
     // StateBridge Capture
     saveState('diagnostic', payload);
     
-    // Audit Logging (WORM Ledger)
-    await appendWormBlock('Diagnostic Execution', {
+    // Audit Logging (Reconciliation Trace)
+    await appendWormBlock('Alignment Execution', {
       volume: session.volume,
       totalLoss: payload.totalLoss,
       auditExposure: payload.audit

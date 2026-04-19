@@ -60,7 +60,7 @@ export function loadState(key) {
 export function requireStateOrRedirect(key, validator) {
   const state = loadState(key);
   if (!state || (validator && !validator(state))) {
-    console.warn(`[SECURITY] Required state '${key}' missing or invalid. Redirecting to dashboard.`);
+    console.warn(`[SECURITY] Required state '${key}' missing or invalid. Redirecting to Operational Intelligence layer.`);
     window.location.href = 'index.html';
     return null;
   }

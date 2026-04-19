@@ -5,7 +5,6 @@ export const ENCOUNTER_COST        = 9.32;
 
 export const AUDIT_FAILURE_RATE    = 0.885;
 export const AUDIT_PROBABILITY     = 0.10;
-export const RISK_THRESHOLD        = 0.58;
 
 export const SCREENING_MIN         = 0.216;
 export const SCREENING_MAX         = 0.959;
