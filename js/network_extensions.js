@@ -48,7 +48,7 @@
     // Validation Guard
     if (t_manual > 0 && t_structured >= t_manual) {
       if (warningEl) {
-        warningEl.innerText = "WARNING: Structured workflow must be faster than manual baseline.";
+        warningEl.innerText = "WARNING: Audit-ready reconstruction must be faster than manual baseline.";
         warningEl.style.display = "block";
       }
       return;
@@ -65,8 +65,8 @@
     // 2. Documentation Reduction (%)
     const reduction = ((t_manual - t_structured) / t_manual) * 100;
 
-    // 3. Workflow Efficiency Gain (%)
-    // Formula: Throughput Capacity Increase = ((t_manual / t_structured) - 1) * 100
+    // 3. Audit Record Throughput Gain (%)
+    // Formula: Audit Throughput Increase = ((t_manual / t_structured) - 1) * 100
     const efficiency = ((t_manual / t_structured) - 1) * 100;
 
     // 4. Additional Members Served
@@ -84,9 +84,9 @@
 
     if (hoursEl) hoursEl.innerText = "Recovered Hours: " + Math.round(H) + " hrs/month";
     if (redEl) redEl.innerText = "Documentation Reduction: " + Math.round(reduction) + "%";
-    if (effEl) effEl.innerText = "Throughput Capacity Increase: +" + Math.round(efficiency) + "%";
-    if (addEl) addEl.innerText = "Additional Members Supported: " + Math.round(additionalMembers) + "/month";
-    if (pmpmEl) pmpmEl.innerText = "Estimated PMPM Alignment Potential: $" + PMPM_total.toLocaleString() + "/month";
+    if (effEl) effEl.innerText = "Audit Throughput Capacity: +" + Math.round(efficiency) + "%";
+    if (addEl) addEl.innerText = "Additional Audit Records Normalized: " + Math.round(additionalMembers) + "/month";
+    if (pmpmEl) pmpmEl.innerText = "Estimated PMPM Recoupment Protection: $" + PMPM_total.toLocaleString() + "/month";
   }
 
   function initExtensions() {

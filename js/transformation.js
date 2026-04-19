@@ -96,10 +96,10 @@ function processInput(text) {
   };
   addAuditLog("Record observed: " + text.substring(0, 30) + "...");
 
-  // 2. Identity Alignment
+  // 2. Identity Risk Masking
   const scrubbed = scrubPHI(text);
   SSOT.scrubbed_input = scrubbed;
-  addAuditLog("Identity alignment complete: PII identifiers suppressed.");
+  addAuditLog("Identity integrity verified: PII identifiers suppressed.");
 
   // 3. Logic Application
   const entities = extractEntities(scrubbed);
@@ -112,7 +112,7 @@ function processInput(text) {
     status: entities.status ? 'HIGH' : 'LOW',
     provider: entities.provider ? 'HIGH' : 'LOW'
   };
-  addAuditLog("Alignment rules applied via deterministic logic.");
+  addAuditLog("Audit Recoupment rules applied via deterministic logic.");
 
   renderDetectionPanel();
 }
@@ -177,7 +177,7 @@ function renderDetectionPanel() {
     }
   });
 
-  addAuditLog("Awaiting confirmation of aligned structure.");
+  addAuditLog("Awaiting confirmation of documentation structure.");
 }
 
 function generateOutputs() {
@@ -187,8 +187,8 @@ function generateOutputs() {
   document.getElementById('outputSection').classList.remove('hidden');
   document.getElementById('auditPanel').classList.remove('hidden');
 
-  addAuditLog("Aligned structure confirmed: Object locked.");
-  addAuditLog("Alignment logic executing...");
+  addAuditLog("Documentation structure confirmed: Object locked.");
+  addAuditLog("Audit Recoupment logic executing...");
 
   // 1. Grant Reporting
   renderOutput('out-grant', {

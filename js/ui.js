@@ -66,25 +66,25 @@ export function renderInterpretation(persona, state) {
   const p2 = document.createElement('p');
   const normalizedPersona = String(persona || '').toLowerCase().trim();
   const volume = Number(state.volume) || 0;
-  const operational = Number(state.operational) || 0;
+  const baselineExposure = Number(state.baselineExposure) || 0;
   const totalLoss = Number(state.totalLoss) || 0;
   const audit = Number(state.audit) || 0;
 
   switch (normalizedPersona) {
     case 'cbo':
-      p1.textContent = `At a monthly volume of ${volume.toLocaleString()} encounters, cross-system alignment signals identify fragmented integrity patterns. This represents the administrative capacity captured or lost through existing documentation structure.`;
-      p2.textContent = `Analysis reconstructs a projected operational friction of ${formatCurrency(operational)}, informing where corrective action may be required to protect funding stability.`;
+      p1.textContent = `At a monthly volume of ${volume.toLocaleString()} encounters, cross-system signals identify fragmented integrity patterns. This represents the Audit Recoupment Exposure captured or lost through existing documentation structure.`;
+      p2.textContent = `Analysis reconstructs a projected Audit Recoupment Exposure of ${formatCurrency(baselineExposure)}, informing where corrective action may be required to protect funding stability.`;
       break;
     case 'scn':
-      p1.textContent = `Network aggregate documentation signals indicate a systemic liability exposure of ${formatCurrency(totalLoss)}. Signal variability suggests prioritized documentation review for specific system touchpoints.`;
-      p2.textContent = `These signals help interpret where system-wide workflow changes or capacity investment may be required to mitigate compliance risk across the SCN.`;
+      p1.textContent = `Network aggregate documentation signals indicate a systemic Audit Recoupment Exposure of ${formatCurrency(totalLoss)}. Signal variability suggests prioritized documentation review for specific system touchpoints.`;
+      p2.textContent = `These signals help interpret where Audit Recoupment Exposure reduction measures or capacity investment may be required to mitigate compliance risk across the SCN.`;
       break;
     case 'payer':
-      p1.textContent = `Systemic signal inconsistencies project a Medicaid recoupment risk reaching ${formatCurrency(totalLoss + audit)}. Network status signals are directional interpretations based on research benchmarks for Year 1-2 SCN conditions.`;
+      p1.textContent = `Systemic signal inconsistencies project a Medicaid recoupment risk reaching ${formatCurrency(totalLoss + audit)}. Network status signals are modeled estimates based on healthcare audit and documentation burden benchmarks for Year 1-2 SCN conditions.`;
       p2.textContent = `Documentation alignment and integrity management are recommended to minimize NYHER reporting exposure via existing systems.`;
       break;
     default:
-      p1.textContent = 'Select a stakeholder persona to view sidecar interpretation.';
+      p1.textContent = 'Select a stakeholder persona to view sidecar rationale.';
       break;
   }
   container.append(p1, p2);
@@ -134,11 +134,11 @@ export function injectGlobalFooter(payload) {
 }
 
 export function renderExposureBoard(persona, payload) {
-  safeText('val-operational', formatCurrency(payload.operational));
-  safeText('band-operational', `${formatCurrency(payload.operationalBand.low)} – ${formatCurrency(payload.operationalBand.high)}`);
+  safeText('val-operational', formatCurrency(payload.baselineExposure));
+  safeText('band-operational', `${formatCurrency(payload.baselineBand.low)} – ${formatCurrency(payload.baselineBand.high)}`);
   
-  safeText('val-denial', formatCurrency(payload.denial));
-  safeText('band-denial', `${formatCurrency(payload.denialBand.low)} – ${formatCurrency(payload.denialBand.high)}`);
+  safeText('val-denial', formatCurrency(payload.administrativeRisk));
+  safeText('band-denial', `${formatCurrency(payload.administrativeBand.low)} – ${formatCurrency(payload.administrativeBand.high)}`);
   
   safeText('val-audit', formatCurrency(payload.audit));
   safeText('band-audit', `${formatCurrency(payload.auditBand.low)} – ${formatCurrency(payload.auditBand.high)}`);
@@ -188,11 +188,11 @@ export function renderScenario(payload) {
   if (!container) return;
   container.textContent = '';
   const h3 = document.createElement('h3');
-  h3.textContent = 'Operational Alignment Profile';
+  h3.textContent = 'Network Audit Recoupment Exposure Profile';
   h3.className = 'eyebrow';
   h3.style.marginBottom = '1rem';
   const p = document.createElement('p');
-  p.textContent = `At ${payload.volume.toLocaleString()} encounters, the system observes a fragmented documentation alignment pattern. This directional interpretation illustrates potential exposure pathways across existing infrastructure.`;
+  p.textContent = `At ${payload.volume.toLocaleString()} encounters, the system observes fragmented cross-system documentation signals. This deterministic modeling illustrates potential Audit Recoupment Exposure pathways across existing infrastructure.`;
   container.append(h3, p);
 }
 
@@ -228,17 +228,24 @@ export function renderStateBridgeSummary(containerId, state) {
   table.className = 'results-table';
   const rows = [
     ['Monthly Volume', state.volume.toLocaleString()],
-    ['Documentation Rework Risk', formatCurrency(state.operational)],
-    ['Estimated Audit Exposure', formatCurrency(state.audit)]
+    ['Administrative Risk Exposure', formatCurrency(state.administrativeRisk)],
+    ['Estimated Audit Recoupment Exposure', formatCurrency(state.audit)]
   ];
   rows.forEach(([label, value]) => {
     const tr = document.createElement('tr');
     const th = document.createElement('th');
     th.textContent = label;
-    th.className = 'eyebrow';
+    th.style.fontFamily = 'var(--font-mono)';
+    th.style.fontSize = '0.7rem';
+    th.style.textTransform = 'uppercase';
+    th.style.color = 'var(--ccx-outcome-gold)';
+    th.style.letterSpacing = '0.05em';
+    th.style.fontWeight = '600';
+    
     const td = document.createElement('td');
     td.textContent = value;
     td.style.textAlign = 'right';
+    td.style.fontWeight = '600';
     tr.append(th, td);
     table.appendChild(tr);
   });

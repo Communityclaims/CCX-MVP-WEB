@@ -26,13 +26,13 @@ import {
 const MONTHS_IN_YEAR    = 12;
 const SCALING_THRESHOLD = 1000;
 
-export function calculateOperationalLoss(volume) {
+export function calculateBaselineExposure(volume) {
   const v = Number(volume);
   if (!Number.isFinite(v) || v <= 0) return 0;
   return v * ENCOUNTER_COST * MEAT_FAILURE * MONTHS_IN_YEAR;
 }
 
-export function calculateDenialLoss(volume) {
+export function calculateAdministrativeRisk(volume) {
   const v = Number(volume);
   if (!Number.isFinite(v) || v <= 0) return 0;
   return v * DENIAL_RATE * REWORK_COST * MONTHS_IN_YEAR;
@@ -111,7 +111,7 @@ export function computeCustomAuditExposure(volume, failureRate, auditProb, multi
   const fr = Math.min(1, Math.max(0, Number(failureRate) || 0));
   const ap = Math.min(1, Math.max(0, Number(auditProb) || 0));
   const m  = Math.max(1, Number(multiplier) || 1);
-  const baseRisk = calculateOperationalLoss(v); 
+  const baseRisk = calculateBaselineExposure(v); 
   const sampled = baseRisk * fr * ap;
   const extrapolated = sampled * m;
   return { totalLoss: baseRisk, sampled, extrapolated };
@@ -121,30 +121,30 @@ export function computeDiagnostic(volume, persona = 'scn') {
   const v = Math.max(1, Math.min(100_000, Number(volume) || 1));
   const p = String(persona).toLowerCase();
   
-  const operational = calculateOperationalLoss(v);
-  const denial      = calculateDenialLoss(v);
-  const totalLoss   = operational + denial;
+  const baselineExposure = calculateBaselineExposure(v);
+  const administrativeRisk = calculateAdministrativeRisk(v);
+  const totalLoss          = baselineExposure + administrativeRisk;
   
   // Persona-specific audit probability scaling
   let auditMultiplier = 1;
   if (p === 'payer') auditMultiplier = 1.25; // Payers see higher systematic exposure
-  if (p === 'cbo') auditMultiplier = 0.85;   // CBOs focus on operational reclaim
+  if (p === 'cbo') auditMultiplier = 0.85;   // CBOs focus on exposure reclamation
 
   const audit = calculateAuditExposure(totalLoss, v) * auditMultiplier;
 
   return {
     volume,
     persona: p,
-    operational,
-    denial,
+    baselineExposure,
+    administrativeRisk,
     totalLoss,
     audit,
-    operationalBand:  confidenceBand(operational),
-    denialBand:       confidenceBand(denial),
-    auditBand:        confidenceBand(audit),
-    totalBand:        confidenceBand(totalLoss + audit),
-    nodes:            generateNodes(),
-    version:          VERSION,
-    dataVersion:      DATA_VERSION
+    baselineBand:       confidenceBand(baselineExposure),
+    administrativeBand: confidenceBand(administrativeRisk),
+    auditBand:          confidenceBand(audit),
+    totalBand:          confidenceBand(totalLoss + audit),
+    nodes:              generateNodes(),
+    version:            VERSION,
+    dataVersion:        DATA_VERSION
   };
 }

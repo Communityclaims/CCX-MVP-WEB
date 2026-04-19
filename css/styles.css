@@ -322,7 +322,7 @@ h2 { font-size: 2rem; }
   color: var(--ccx-outcome-gold);
   letter-spacing: 0.1em;
   margin-bottom: 0.75rem;
-  display: block;
+  display: inline-block;
 }
 
 /* ── CTA System ───────────────────────────────────────────── */
@@ -984,7 +984,7 @@ table, .results-table {
   color: var(--ccx-outcome-gold);
 }
 
-/* ── Operational Audit Diagnostic UI ──────────────────────── */
+/* ── Audit Recoupment Exposure Model UI ──────────────────────── */
 
 #ccx-fidelity-extensions {
   margin-top: 2rem;

@@ -113,7 +113,7 @@ export function runDemoAnimation() {
     outputRationale.style.opacity = '0';
   }
   counter.textContent = '0.00s';
-  processingState.textContent = 'INITIATING RECONCILIATION...';
+  processingState.textContent = 'INITIATING RECONSTRUCTION...';
   
   fragmentRows.forEach(row => { 
     row.style.opacity = '1'; 
@@ -140,9 +140,9 @@ export function runDemoAnimation() {
     });
   }, 500);
 
-  // Step 2: Alignment Passage
+  // Step 2: Reconstruction Passage
   setTimeout(() => {
-    processingState.textContent = 'DETERMINISTIC ALIGNMENT ACTIVE...';
+    processingState.textContent = 'DETERMINISTIC RECONSTRUCTION ACTIVE...';
     logicSteps.forEach((step, i) => {
       setTimeout(() => {
         step.style.background = 'var(--ccx-status-live)';
@@ -186,12 +186,12 @@ export function runDemoAnimation() {
   }, 2600);
 
   function completeDemo() {
-    processingState.textContent = 'AUDIT-READY RECORD // RECoupMENT RISK VALIDATED';
+    processingState.textContent = 'AUDIT RECORD SECURE // RECOUPMENT RISK VALIDATED';
     startLatencyCountdown();
 
     setTimeout(() => {
       trigger.disabled = false;
-      trigger.textContent = 'Reset Alignment Trace';
+      trigger.textContent = 'Reset Audit Trace';
     }, 2000);
   }
 }

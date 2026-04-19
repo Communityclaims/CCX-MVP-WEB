@@ -141,9 +141,10 @@ async function runDiagnostic() {
     saveState('diagnostic', payload);
     
     // Audit Logging (Reconciliation Trace)
-    await appendWormBlock('Alignment Execution', {
+    await appendWormBlock('Audit Recoupment Detection Execution', {
       volume: session.volume,
-      totalLoss: payload.totalLoss,
+      baselineExposure: payload.baselineExposure,
+      administrativeRisk: payload.administrativeRisk,
       auditExposure: payload.audit
     });
     
