@@ -73,7 +73,7 @@
       <p class="eyebrow" style="margin-bottom: 1rem;">CCX Audit Recoupment Risk Detection Layer (Surface)</p>
       <h2 style="margin-bottom: 1.5rem;">Pre-Audit Recoupment Exposure Identification</h2>
       
-      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-bottom: 3rem; align-items: start;">
+      <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; margin-bottom: 3rem; align-items: start;" class="bifurcated-grid">
         <div>
           <p style="font-weight: 500; font-size: 1.15rem; line-height: 1.6; color: var(--ccx-frame-regulatory); margin-bottom: 1.5rem;">
             Identifies where existing documentation fails to meet audit defensibility thresholds before any structural record changes.
@@ -116,7 +116,7 @@
       </div>
       <div class="workflow-engine-v5" id="demoCanvas" style="display: flex; flex-direction: column; gap: 0; max-width: var(--container-max); margin: 0 auto; border: 1px solid var(--border-alpha); background: #fff; overflow: hidden; position: relative; box-shadow: 0 8px 30px rgba(11, 31, 51, 0.08);">
         
-        <div style="display: flex; align-items: stretch; min-height: 520px;">
+        <div class="workflow-panels" style="display: flex; align-items: stretch; min-height: 520px;">
           
           <!-- STATE 1: FRAGMENTED INPUT FIELD -->
           <div class="pipeline-state inputs" id="leftPanel" style="flex: 1.2; padding: 3rem 2.5rem; position: relative; transition: background 0.5s ease;">
@@ -198,7 +198,7 @@
               <div class="output-content active" id="out-master">
                 <div class="institutional-artifact" style="width: 100%; border: 1px solid #111; padding: 1.5rem; background: #fff; font-family: var(--font-sans);">
                   <div style="font-family: var(--font-mono); font-size: 0.5rem; color: #888; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;">AUDIT-READY CANONICAL RECORD // RECOUPMENT RISK CONFIRMED</div>
-                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;" class="bifurcated-grid">
                     <div class="artifact-fields" style="display: flex; flex-direction: column; gap: 0.8rem;">
                       <div style="display: flex; justify-content: space-between; font-size: 0.7rem; border-bottom: 1px solid #f5f5f5; padding-bottom: 0.4rem;">
                         <span style="color: #666;">Patient ID</span>
@@ -348,7 +348,7 @@
 
     <!-- AUDIT DEFENSIBILITY MODULE -->
     <section id="documentation-module" class="panel-hardened" style="margin-top: 1rem; padding: 3rem; background: var(--ccx-bg-archival); border-top: 4px solid var(--ccx-frame-regulatory);">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="bifurcated-grid">
         <div>
           <h2 style="margin: 0 0 1rem 0;">Audit Defensibility Layer</h2>
           <p style="opacity: 0.7; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">

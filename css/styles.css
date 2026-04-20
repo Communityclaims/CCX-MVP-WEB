@@ -1228,6 +1228,80 @@ table, .results-table {
   }
 
   /* Index Layout Fixes */
+  .bifurcated-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  
+  .workflow-panels {
+    flex-direction: column !important;
+  }
+  
+  .workflow-panels > div {
+    border-right: none !important;
+    border-bottom: 1px solid var(--border-alpha) !important;
+    padding: 2.5rem 1.5rem !important;
+    width: 100% !important;
+  }
+  
+  .transformation-trace-bridge {
+    width: 100% !important;
+    height: auto !important;
+    border-left: none !important;
+    border-right: none !important;
+    padding: 1rem !important;
+    flex-direction: row !important;
+  }
+  
+  .transformation-trace-bridge > div {
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+    letter-spacing: 0.1em !important;
+    font-size: 0.55rem !important;
+    white-space: normal !important;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .pipeline-state.inputs > p.eyebrow,
+  .pipeline-state.alignment > p.eyebrow,
+  .pipeline-state.record > p.eyebrow {
+    position: static !important;
+    margin-bottom: 1.5rem !important;
+  }
+  
+  .pipeline-state.inputs > p:last-child {
+    position: static !important;
+    margin-top: 1.5rem !important;
+  }
+  
+  .logic-membrane {
+    margin-top: 1.5rem !important;
+  }
+
+  .mapping-arrow {
+    transform: rotate(90deg);
+    margin: 1rem 0;
+  }
+  
+  .mapping-node {
+    width: 100%;
+  }
+
+  .persona-switcher {
+    flex-direction: column;
+  }
+
+  .controls-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .controls-grid .control-group {
+    width: 100%;
+  }
+
   .conversion-hero h1 {
     font-size: 1.75rem;
     line-height: 1.2;
