@@ -159,8 +159,8 @@
 
         <div class="ccx-inputs">
               <div class="ccx-input-group">
-                <label for="ccx-encounters">Encounters / Screenings / Month</label>
-                <input id="ccx-encounters" type="number" value="400" placeholder="400" title="Monthly encounters screenings per month" />
+                <label for="ccx-encounters">Monthly Screenings (Per FTE)</label>
+                <input id="ccx-encounters" type="number" value="400" placeholder="400" title="Monthly encounters screenings per staff member" />
               </div>
               <div class="ccx-input-group">
                 <label for="ccx-staff">Staff Count (FTE)</label>
@@ -214,16 +214,22 @@
               <div class="decision-context-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div class="panel-hardened" style="padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border-alpha);">
                   <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.5rem;">Infrastructure Assumptions</h4>
-                  <p style="font-size: 0.65rem; opacity: 0.8; line-height: 1.4;">Reflects 15–30m manual screening baselines vs. structured data reuse. Admin overhead calibrated to early-stage SCN pilot benchmarks.</p>
+                  <p style="font-size: 0.65rem; opacity: 0.8; line-height: 1.4;">Reflects 15–30m manual screening baselines vs. structured data reuse. Admin overhead calibrated to early-stage SCN pilot benchmarks.<sup>[1]</sup></p>
                 </div>
                 <div class="panel-hardened" style="padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border-alpha);">
                   <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.5rem;">Research Benchmarks</h4>
-                  <p style="font-size: 0.65rem; opacity: 0.8; line-height: 1.4;">Aligned with AMIA 25x5 reduction goals and SCN navigator time-and-motion data (~38% overhead in fragmented nodes).</p>
+                  <p style="font-size: 0.65rem; opacity: 0.8; line-height: 1.4;">Aligned with AMIA 25x5 documentation burden reduction goals and SCN navigator time-and-motion studies (~38% overhead in fragmented care nodes).<sup>[2]</sup></p>
                 </div>
                 <div class="panel-hardened" style="padding: 1rem; background: rgba(0,0,0,0.15); border: 1px solid var(--border-alpha);">
                   <h4 class="eyebrow" style="color: var(--ccx-status-live); margin-bottom: 0.5rem;">Audit Recoupment Risk Detection</h4>
                   <p style="font-size: 0.65rem; opacity: 0.8; line-height: 1.4;">Year 1–2 expectations for NY SCNs. Implementation is eligible as infrastructure capacity-building investment. <a href="methodology.html" style="color: inherit; text-decoration: underline;">Full Logic →</a></p>
                 </div>
+              </div>
+              <div style="margin-top: 1.5rem; font-size: 0.6rem; opacity: 0.6; padding-left: 1rem; border-left: 2px solid var(--border-alpha);">
+                <ol style="margin: 0; padding-left: 1rem; font-family: var(--font-mono); display: flex; flex-direction: column; gap: 0.5rem;">
+                  <li>[1] SCN Performance Baselines & Administrative Friction Parameters (2024–2025 Initial Operations).</li>
+                  <li>[2] AMIA 25x5 Task Force on Reducing Documentation Burden (American Medical Informatics Association). Models applied to non-clinical social care intervention tracking.</li>
+                </ol>
               </div>
             </details>
           </div>

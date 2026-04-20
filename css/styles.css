@@ -413,6 +413,13 @@ h2 { font-size: 2rem; }
   color: #FFFFFF;
 }
 
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  align-items: end;
+}
+
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -436,6 +443,12 @@ h2 { font-size: 2rem; }
 .kpi-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ccx-frame-regulatory); opacity: 0.7; text-transform: uppercase; }
 .kpi-value { font-size: 2rem; font-family: var(--font-mono); color: var(--ccx-frame-regulatory); margin: 0.75rem 0; }
 .kpi-band { font-size: 0.8rem; color: var(--ccx-outcome-gold); font-family: var(--font-mono); }
+
+.actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
 
 /* ── Inquiry Form Module ──────────────────────────────────── */
 
@@ -1005,7 +1018,7 @@ table, .results-table {
 
 .ccx-heatmap-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 0.75rem;
   margin-top: 1rem;
 }
@@ -1206,8 +1219,8 @@ table, .results-table {
 
   .header-inner {
     flex-direction: column;
-    gap: 1.5rem;
-    padding: 1rem 0;
+    gap: 0.75rem;
+    padding: 0.75rem 0;
   }
 
   .brand, .peripheral-hud {
@@ -1215,9 +1228,18 @@ table, .results-table {
   }
 
   .nav-links {
-    gap: 1rem;
+    gap: 0.5rem 1rem;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  
+  .nav-links li:first-child { /* Hide "Navigation:" on mobile */
+    display: none;
+  }
+  
+  .nav-links a {
+    font-size: 0.65rem;
+    padding: 0.25rem 0;
   }
 
   .peripheral-hud {
@@ -1240,10 +1262,24 @@ table, .results-table {
   .workflow-panels > div {
     border-right: none !important;
     border-bottom: 1px solid var(--border-alpha) !important;
-    padding: 2.5rem 1.5rem !important;
+    padding: 1.5rem 1rem !important;
     width: 100% !important;
   }
   
+  #sourceFragments {
+    margin-top: 1.5rem !important;
+  }
+
+  .output-tabs {
+    flex-wrap: wrap;
+    gap: 0.5rem !important;
+  }
+  
+  .output-tab-btn {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
   .transformation-trace-bridge {
     width: 100% !important;
     height: auto !important;
@@ -1263,6 +1299,14 @@ table, .results-table {
     line-height: 1.6;
   }
 
+  .artifact-timeline {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+
   .pipeline-state.inputs > p.eyebrow,
   .pipeline-state.alignment > p.eyebrow,
   .pipeline-state.record > p.eyebrow {
@@ -1277,6 +1321,15 @@ table, .results-table {
   
   .logic-membrane {
     margin-top: 1.5rem !important;
+  }
+
+  .logic-step {
+    padding: 1rem 0 !important;
+    gap: 1rem !important;
+  }
+  
+  .logic-step span {
+    font-size: 0.75rem !important;
   }
 
   .mapping-arrow {

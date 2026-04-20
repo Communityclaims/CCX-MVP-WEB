@@ -31,6 +31,14 @@ async function startServer() {
   // Security: Body Parsing with strict limits
   app.use(express.json({ limit: '10kb' }));
 
+  // Catch invalid JSON
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    if (err instanceof SyntaxError && 'body' in err) {
+      return res.status(400).json({ status: "error", message: "Invalid JSON payload" });
+    }
+    next(err);
+  });
+
   // Debug: Request Logger for Audit Logic
   app.use((req, res, next) => {
     console.log(`[DEBUG] ${new Date().toISOString()} | ${req.method} ${req.url}`);
@@ -46,9 +54,9 @@ async function startServer() {
       });
     }
 
-    const { name, email, org, focus, message } = req.body;
+    const { name, email, org, focus, message } = req.body || {};
 
-    if (!name || !email || !org || !focus || !message) {
+    if (!name || !email || !focus || !message) {
       return res.status(400).json({ 
         status: "error", 
         message: "Incomplete handshake payload. Audit integrity requires all fields." 
@@ -60,16 +68,16 @@ async function startServer() {
       return res.status(400).json({ status: "error", message: "Invalid identity format." });
     }
 
-    console.log(`[SYSTEM] Handshake Received: ${email} | ${org}`);
+    console.log(`[SYSTEM] Handshake Received: ${email} | ${org || 'N/A'}`);
 
     try {
       if (initSendGrid()) {
         const msg = {
           to: process.env.INQUIRY_RECIPIENT_EMAIL || 'alison@ccxny.org',
           from: 'system@ccxny.org',
-          subject: `CCX Technical Handshake: ${org}`,
-          text: `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nFocus: ${focus}\n\nMessage:\n${message}`,
-          html: `<h3>Technical Handshake Received</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Organization:</strong> ${org}</p><p><strong>Focus Pattern:</strong> ${focus}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
+          subject: `CCX Technical Handshake: ${org || 'Independent Inquiry'}`,
+          text: `Name: ${name}\nEmail: ${email}\nOrganization: ${org || 'N/A'}\nFocus: ${focus}\n\nMessage:\n${message}`,
+          html: `<h3>Technical Handshake Received</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Organization:</strong> ${org || 'N/A'}</p><p><strong>Focus Pattern:</strong> ${focus}</p><p><strong>Message:</strong></p><p>${String(message).replace(/\n/g, '<br>')}</p>`,
         };
         await sgMail.send(msg);
       }
@@ -84,8 +92,8 @@ async function startServer() {
     });
   };
 
-  app.post("/api/inquiry", inquiryHandler);
-  app.post("/api/inquiry/", inquiryHandler);
+  app.all("/api/inquiry", inquiryHandler);
+  app.all("/api/inquiry/", inquiryHandler);
   app.use("/api/inquiry", (req, res, next) => {
     if (req.url === '/' || req.url === '') {
       if (req.method !== 'POST') {
