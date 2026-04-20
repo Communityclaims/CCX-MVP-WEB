@@ -113,7 +113,7 @@ export function runDemoAnimation() {
     outputRationale.style.opacity = '0';
   }
   counter.textContent = '0.00s';
-  processingState.textContent = 'INITIATING RECONSTRUCTION...';
+  processingState.textContent = 'INITIATING AUDIT TRACE...';
   
   fragmentRows.forEach(row => { 
     row.style.opacity = '1'; 
@@ -121,7 +121,9 @@ export function runDemoAnimation() {
     row.style.fontWeight = '400';
   });
   logicSteps.forEach(step => { 
-    step.style.background = 'rgba(11, 31, 51, 0.1)'; 
+    step.style.borderColor = 'var(--border-alpha)'; 
+    const dot = step.querySelector('.step-dot');
+    if (dot) dot.style.opacity = '0';
     const span = step.querySelector('span');
     if (span) {
       span.style.color = '#999';
@@ -131,7 +133,7 @@ export function runDemoAnimation() {
 
   // Step 1: Fragment Recognition
   setTimeout(() => {
-    processingState.textContent = 'ANALYZING SOURCE FRAGMENTS...';
+    processingState.textContent = 'SCANNING SOURCE FRAGMENTS...';
     fragmentRows.forEach((row, i) => {
       setTimeout(() => {
         row.style.color = 'var(--ccx-frame-regulatory)';
@@ -142,10 +144,15 @@ export function runDemoAnimation() {
 
   // Step 2: Reconstruction Passage
   setTimeout(() => {
-    processingState.textContent = 'DETERMINISTIC RECONSTRUCTION ACTIVE...';
+    processingState.textContent = 'RECONCILING CROSS-SYSTEM SIGNALS...';
     logicSteps.forEach((step, i) => {
       setTimeout(() => {
-        step.style.background = 'var(--ccx-status-live)';
+        step.style.borderColor = 'var(--ccx-status-live)';
+        const dot = step.querySelector('.step-dot');
+        if (dot) {
+          dot.style.opacity = '1';
+          dot.style.background = 'var(--ccx-status-live)';
+        }
         const span = step.querySelector('span');
         if (span) {
           span.style.color = 'var(--ccx-frame-regulatory)';

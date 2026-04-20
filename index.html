@@ -111,18 +111,18 @@
 
     <section class="demo-container" id="workflow-engine" style="margin-top: 2rem; padding: 1.5rem 1.5rem 0.5rem; background: var(--ccx-bg-archival);">
       <!-- Forensic View Switching (Bifurcated Toggle) -->
-      <div style="max-width: var(--container-max); margin: 0 auto 1rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem;">
-        <span class="eyebrow" style="font-size: 0.5rem; color: #888;">Visualization Methodology: Audit Trace Visualization Layer</span>
+      <div style="max-width: var(--container-max); margin: 0 auto 1.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 0.75rem;">
+        <span class="eyebrow" style="font-size: 0.65rem; color: #888;">Visualization Methodology: Audit Trace Visualization Layer</span>
       </div>
-      <div class="workflow-engine-v5" id="demoCanvas" style="display: flex; flex-direction: column; gap: 0; max-width: var(--container-max); margin: 0 auto; border: 1px solid var(--border-alpha); background: #fff; overflow: hidden; position: relative; box-shadow: 0 4px 20px rgba(11, 31, 51, 0.05);">
+      <div class="workflow-engine-v5" id="demoCanvas" style="display: flex; flex-direction: column; gap: 0; max-width: var(--container-max); margin: 0 auto; border: 1px solid var(--border-alpha); background: #fff; overflow: hidden; position: relative; box-shadow: 0 8px 30px rgba(11, 31, 51, 0.08);">
         
-        <div style="display: flex; align-items: stretch; min-height: 480px;">
+        <div style="display: flex; align-items: stretch; min-height: 520px;">
           
           <!-- STATE 1: FRAGMENTED INPUT FIELD -->
-          <div class="pipeline-state inputs" id="leftPanel" style="flex: 1; padding: 2.5rem; position: relative; transition: background 0.5s ease;">
-            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">Source Inputs (Unstructured System Fragments)</p>
+          <div class="pipeline-state inputs" id="leftPanel" style="flex: 1.2; padding: 3rem 2.5rem; position: relative; transition: background 0.5s ease;">
+            <p class="eyebrow" style="position: absolute; top: 1.25rem; left: 1.5rem; font-size: 0.6rem; color: #888; margin: 0;">Source Inputs (Unstructured System Fragments)</p>
             
-            <div id="sourceFragments" style="margin-top: 2.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: #555; line-height: 2;">
+            <div id="sourceFragments" style="margin-top: 3rem; font-family: var(--font-mono); font-size: 0.75rem; color: #555; line-height: 2.2;">
               <div class="fragment-row" style="padding-left: 0.5rem; transition: opacity 0.3s; margin-bottom: 0.75rem;">
                 <span style="color: #999;">[EHR_TEXT]</span> patient reports housing instability, referred to community organization for support services.
               </div>
@@ -145,41 +145,53 @@
           </div>
 
           <!-- STATE 2: ALIGNMENT LAYER (CORE SYSTEM LOGIC ZONE) -->
-          <div class="pipeline-state alignment" id="centerPanel" style="flex: 1; padding: 2.5rem; border-right: 1px solid var(--border-alpha); position: relative; background: rgba(11, 31, 51, 0.01);">
-            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">CCX Audit Recoupment Risk Detection Layer (Pipeline)</p>
+          <div class="pipeline-state alignment" id="centerPanel" style="flex: 1.4; padding: 4rem 3.5rem; border-right: 1px solid var(--border-alpha); position: relative; background: rgba(11, 31, 51, 0.005); display: flex; flex-direction: column;">
+            <p class="eyebrow" style="position: absolute; top: 1.75rem; left: 3.5rem; font-size: 0.65rem; color: var(--ccx-frame-regulatory); opacity: 0.6; margin: 0; letter-spacing: 0.1em;">CCX Audit Recoupment Risk Detection Layer (Pipeline)</p>
             
-            <div class="logic-membrane" style="margin-top: 3.5rem; display: flex; flex-direction: column; gap: 2rem;">
-              <div class="logic-step" id="step-1" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
-                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Identify Documentation Gaps</span>
+            <div class="logic-membrane" style="margin-top: 5rem; flex: 1; display: flex; flex-direction: column; gap: 1.25rem;">
+              <div class="logic-step" id="step-1" style="display: flex; align-items: center; gap: 2.25rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border-alpha); transition: all 0.3s; opacity: 0.9;">
+                <div class="step-indicator" style="width: 20px; height: 20px; border: 1px solid var(--border-alpha); display: flex; align-items: center; justify-content: center; position: relative; border-radius: 2px;">
+                  <div class="step-dot" style="width: 8px; height: 8px; background: var(--ccx-frame-regulatory); opacity: 0; transition: opacity 0.3s; border-radius: 1px;"></div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;">Identify Documentation Gaps</span>
               </div>
-              <div class="logic-step" id="step-2" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
-                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Reconcile Cross-System Records</span>
+              <div class="logic-step" id="step-2" style="display: flex; align-items: center; gap: 2.25rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border-alpha); transition: all 0.3s; opacity: 0.9;">
+                <div class="step-indicator" style="width: 20px; height: 20px; border: 1px solid var(--border-alpha); display: flex; align-items: center; justify-content: center; position: relative; border-radius: 2px;">
+                  <div class="step-dot" style="width: 8px; height: 8px; background: var(--ccx-frame-regulatory); opacity: 0; transition: opacity 0.3s; border-radius: 1px;"></div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;">Reconcile Cross-System Records</span>
               </div>
-              <div class="logic-step" id="step-3" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
-                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Construct Audit-Ready Timeline</span>
+              <div class="logic-step" id="step-3" style="display: flex; align-items: center; gap: 2.25rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border-alpha); transition: all 0.3s; opacity: 0.9;">
+                <div class="step-indicator" style="width: 20px; height: 20px; border: 1px solid var(--border-alpha); display: flex; align-items: center; justify-content: center; position: relative; border-radius: 2px;">
+                  <div class="step-dot" style="width: 8px; height: 8px; background: var(--ccx-frame-regulatory); opacity: 0; transition: opacity 0.3s; border-radius: 1px;"></div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;">Construct Audit-Ready Timeline</span>
               </div>
-              <div class="logic-step" id="step-4" style="height: 1px; background: rgba(11, 31, 51, 0.1); width: 100%; position: relative; transition: background 0.5s;">
-                <span style="position: absolute; top: -0.65rem; left: 0; font-family: var(--font-mono); font-size: 0.58rem; color: #999; background: #fff; padding-right: 0.75rem; transition: color 0.5s;">Generate Canonical Audit Record</span>
+              <div class="logic-step" id="step-4" style="display: flex; align-items: center; gap: 2.25rem; padding: 2.5rem 0; border-bottom: 1px solid var(--border-alpha); transition: all 0.3s; opacity: 0.9;">
+                <div class="step-indicator" style="width: 20px; height: 20px; border: 1px solid var(--border-alpha); display: flex; align-items: center; justify-content: center; position: relative; border-radius: 2px;">
+                  <div class="step-dot" style="width: 8px; height: 8px; background: var(--ccx-frame-regulatory); opacity: 0; transition: opacity 0.3s; border-radius: 1px;"></div>
+                </div>
+                <span style="font-family: var(--font-mono); font-size: 0.9rem; color: #555; text-transform: uppercase; letter-spacing: 0.08em; transition: color 0.3s;">Generate Canonical Audit Record</span>
               </div>
             </div>
 
-            <div class="processing-stats" style="position: absolute; bottom: 1rem; left: 1rem; right: 1rem; display: flex; justify-content: space-between; align-items: center; opacity: 0.4;">
-              <div class="processing-state" id="processingState" style="font-family: var(--font-mono); font-size: 0.55rem; text-transform: uppercase;">AUDIT ALIGNMENT COMPLETE // INSTITUTIONAL RECORD GENERATED</div>
-              <div id="demoCounter" style="font-family: var(--font-mono); font-size: 0.55rem;">0.00s</div>
+            <div class="processing-stats" style="margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; opacity: 0.6; padding-top: 1rem; border-top: 1px dashed var(--border-alpha);">
+              <div class="processing-state" id="processingState" style="font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase;">READY // STANDBY FOR TRACE</div>
+              <div id="demoCounter" style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 600;">0.00s</div>
             </div>
           </div>
 
           <!-- STATE 3: STRUCTURED RECORD (FINAL FORM) -->
-          <div class="pipeline-state record" id="rightPanel" style="flex: 2; padding: 2rem; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; background: #fff; position: relative;">
-            <p class="eyebrow" style="position: absolute; top: 1rem; left: 1rem; font-size: 0.55rem; color: #888; margin: 0;">Institutional Record Outputs</p>
+          <div class="pipeline-state record" id="rightPanel" style="flex: 1.8; padding: 2.5rem; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start; background: #fff; position: relative;">
+            <p class="eyebrow" style="position: absolute; top: 1.25rem; left: 1.5rem; font-size: 0.6rem; color: #888; margin: 0;">Institutional Record Outputs</p>
             
             <!-- Output Container -->
-            <div id="outputContainer" class="hidden" style="margin-top: 1rem; opacity: 0; transition: opacity 1s;">
-              <div class="output-tabs" style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-alpha); padding-bottom: 0.5rem;">
-                <button class="output-tab-btn active" data-output="master" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: var(--ccx-frame-regulatory); cursor: pointer; border-bottom: 2px solid var(--ccx-status-live); padding: 0.25rem 0.5rem;">Canonical Audit Record</button>
-                <button class="output-tab-btn" data-output="grant" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">GRANT reporting</button>
-                <button class="output-tab-btn" data-output="scn" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">SCN / 1115</button>
-                <button class="output-tab-btn" data-output="cms" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.55rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">CMS billing</button>
+            <div id="outputContainer" class="hidden" style="margin-top: 1.5rem; opacity: 0; transition: opacity 1s;">
+              <div class="output-tabs" style="display: flex; gap: 0.75rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-alpha); padding-bottom: 0.5rem;">
+                <button class="output-tab-btn active" data-output="master" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.6rem; color: var(--ccx-frame-regulatory); cursor: pointer; border-bottom: 2px solid var(--ccx-status-live); padding: 0.25rem 0.5rem;">Canonical Audit Record</button>
+                <button class="output-tab-btn" data-output="grant" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.6rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">GRANT reporting</button>
+                <button class="output-tab-btn" data-output="scn" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.6rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">SCN / 1115</button>
+                <button class="output-tab-btn" data-output="cms" style="background: none; border: none; font-family: var(--font-mono); font-size: 0.6rem; color: #888; cursor: pointer; padding: 0.25rem 0.5rem;">CMS Claims</button>
               </div>
 
               <!-- Master Record Artifact -->
@@ -246,17 +258,59 @@
                 </div>
               </div>
 
-              <!-- CMS Billing Content -->
+              <!-- CMS Claims Content -->
               <div class="output-content hidden" id="out-cms">
-                <div class="institutional-artifact" style="border: 1px solid #EF4444; padding: 1.5rem; background: rgba(239, 68, 68, 0.02);">
-                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1rem; border-bottom: 1px solid rgba(239, 68, 68, 0.1); padding-bottom: 0.5rem;">
-                    <span class="eyebrow" style="font-size: 0.5rem; margin: 0; color: #EF4444;">CMS / Financial Billing Artifact</span>
-                    <span class="sim-badge" style="font-size: 0.45rem; padding: 2px 6px; background: #EF4444; color: #fff;">HITL_ENFORCED</span>
+                <div class="institutional-artifact" style="border: 1px solid var(--border-alpha); padding: 2rem; background: #fff; box-shadow: 0 4px 24px rgba(0,0,0,0.03); border-radius: 8px;">
+                  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.75rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 1rem;">
+                    <span class="eyebrow" style="font-size: 0.65rem; margin: 0; color: var(--ccx-frame-regulatory); font-weight: 600;">CMS Claims Alignment</span>
+                    <span class="sim-badge" style="font-size: 0.5rem; padding: 4px 10px; background: var(--ccx-frame-regulatory); color: #fff; border-radius: 4px;">AUDIT_DEFENSIBILITY_LOCKED</span>
                   </div>
-                  <div style="text-align: center; padding: 1rem 0;">
-                    <div style="font-size: 0.6rem; color: #EF4444; border: 1px dashed #EF4444; display: inline-block; padding: 0.5rem 1rem; text-transform: uppercase;">Awaiting Human Verification</div>
-                    <p style="font-size: 0.65rem; color: #666; margin-top: 1rem; line-height: 1.4;">
-                      Audit Recoupment Exposure suggests eligibility for <strong>HCPC G9012</strong>. Financial lock active pending manual system-of-record reconciliation.
+                  
+                  <div class="artifact-fields" style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.8rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 0.6rem;">
+                      <span style="color: #666;">Documentation &rarr; Claim Evidence Mapping</span>
+                      <span style="font-weight: 600; color: var(--ccx-status-live); font-family: var(--font-mono);">SECURE</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 0.6rem;">
+                      <span style="color: #666;">ICD-10 Reference Context (e.g., Z59.0)</span>
+                      <span style="font-weight: 600; font-family: var(--font-mono);">ALIGNMENT_PASS</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 0.6rem;">
+                      <span style="color: #666;">Service Event &rarr; Claim Support Structure</span>
+                      <span style="font-weight: 600; font-family: var(--font-mono);">VALIDATED</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 0.6rem;">
+                      <span style="color: #666;">Referral &rarr; Authorization Documentation Support</span>
+                      <span style="font-weight: 600; font-family: var(--font-mono);">VERIFIED</span>
+                    </div>
+                  </div>
+
+                  <!-- Expandable Reference Layer -->
+                  <div style="margin-top: 2rem; border-top: 1px dashed var(--border-alpha); padding-top: 1.5rem;">
+                    <details class="cms-code-reference" style="cursor: pointer; font-size: 0.75rem;">
+                      <summary style="font-family: var(--font-mono); color: var(--ccx-frame-regulatory); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; list-style: none; display: flex; align-items: center; gap: 0.75rem;">
+                        <span style="font-size: 0.6rem; color: #999;">▶</span> CMS Code Reference Layer
+                      </summary>
+                      <div style="padding: 1.25rem; background: rgba(11, 31, 51, 0.025); border-radius: 6px; display: flex; flex-direction: column; gap: 0.75rem; color: #444; font-family: var(--font-mono); font-size: 0.7rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                          <div style="width: 5px; height: 5px; background: #999; border-radius: 50%;"></div>
+                          ICD-10 examples
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                          <div style="width: 5px; height: 5px; background: #999; border-radius: 50%;"></div>
+                          CPT/HCPCS reference table
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem;">
+                          <div style="width: 5px; height: 5px; background: #999; border-radius: 50%;"></div>
+                          UB-04 field mapping references
+                        </div>
+                      </div>
+                    </details>
+                  </div>
+
+                  <div style="margin-top: 2.5rem; padding: 1.5rem; border: 1px solid rgba(198, 168, 107, 0.3); background: rgba(198, 168, 107, 0.05); border-radius: 8px;">
+                    <p style="font-size: 0.75rem; color: var(--ccx-frame-regulatory); line-height: 1.7; font-style: italic; text-align: center; margin: 0; opacity: 0.9; font-weight: 500;">
+                      "CCX validates whether documentation can survive CMS audit&mdash;not whether it qualifies for a specific billing code."
                     </p>
                   </div>
                 </div>
@@ -264,9 +318,9 @@
             </div>
 
             <!-- Revised "WHY THIS MATTERS" Position -->
-            <div id="outputRationale" class="hidden" style="margin-top: auto; padding: 1rem; background: rgba(11, 31, 51, 0.02); border-left: 2px solid var(--ccx-outcome-gold); transition: opacity 1s; opacity: 0;">
-               <p style="font-size: 0.65rem; color: var(--ccx-frame-regulatory); line-height: 1.6; margin: 0; opacity: 0.8;">
-                Structured Audit Recoupment Exposure detection produces a single reconciled representation of cross-system activity. This unified record drives automated outputs for grant reporting, 1115 SCN activity, and compliance exports—ensuring that every interaction is captured with audit-level precision.
+            <div id="outputRationale" class="hidden" style="margin-top: auto; padding: 1.5rem; background: rgba(11, 31, 51, 0.02); border-left: 2px solid var(--ccx-outcome-gold); transition: opacity 1s; opacity: 0;">
+               <p style="font-size: 0.75rem; color: var(--ccx-frame-regulatory); line-height: 1.7; margin: 0; opacity: 0.9;">
+                Structured audit recoupment risk detection produces a reconciled documentation-to-claim evidence record used for CMS claims support, 1115 waiver reporting, and audit defensibility validation.
                </p>
             </div>
           </div>

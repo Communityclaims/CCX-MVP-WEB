@@ -31,65 +31,68 @@ async function startServer() {
   // Security: Body Parsing with strict limits
   app.use(express.json({ limit: '10kb' }));
 
+  // Debug: Request Logger for Audit Logic
+  app.use((req, res, next) => {
+    console.log(`[DEBUG] ${new Date().toISOString()} | ${req.method} ${req.url}`);
+    next();
+  });
+
   // API: Technical Inquiry Handshake
-  app.post("/api/inquiry", async (req, res) => {
+  const inquiryHandler = async (req: express.Request, res: express.Response) => {
+    if (req.method !== 'POST') {
+      return res.status(405).json({ 
+        status: "error", 
+        message: "Method not allowed. Handshake requires POST protocol." 
+      });
+    }
+
     const { name, email, org, focus, message } = req.body;
 
-    // Defensive Validation
     if (!name || !email || !org || !focus || !message) {
       return res.status(400).json({ 
         status: "error", 
-        message: "Incomplete handshake payload. All fields are mandatory for audit integrity." 
+        message: "Incomplete handshake payload. Audit integrity requires all fields." 
       });
     }
 
-    // Email Regex (OWASP Standard)
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ 
-        status: "error", 
-        message: "Invalid identity format detected." 
-      });
+      return res.status(400).json({ status: "error", message: "Invalid identity format." });
     }
 
-    console.log(`[SYSTEM] Technical Handshake Received: ${email} (${org})`);
+    console.log(`[SYSTEM] Handshake Received: ${email} | ${org}`);
 
-    // In a production environment, this would integrate with a CRM or secure queue.
     try {
       if (initSendGrid()) {
         const msg = {
           to: process.env.INQUIRY_RECIPIENT_EMAIL || 'alison@ccxny.org',
-          from: 'system@ccxny.org', // This should be a verified sender in SendGrid
+          from: 'system@ccxny.org',
           subject: `CCX Technical Handshake: ${org}`,
           text: `Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nFocus: ${focus}\n\nMessage:\n${message}`,
-          html: `
-            <h3>Technical Handshake Received</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Organization:</strong> ${org}</p>
-            <p><strong>Focus Pattern:</strong> ${focus}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, '<br>')}</p>
-          `,
+          html: `<h3>Technical Handshake Received</h3><p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Organization:</strong> ${org}</p><p><strong>Focus Pattern:</strong> ${focus}</p><p><strong>Message:</strong></p><p>${message.replace(/\n/g, '<br>')}</p>`,
         };
         await sgMail.send(msg);
-        console.log(`[SYSTEM] Email dispatched via SendGrid to: ${msg.to}`);
-      } else {
-        console.warn('[SYSTEM] SendGrid not initialized. SENDGRID_API_KEY missing?');
-        // We still return success for demo purposes if the API key is missing, 
-        // but log the warning.
       }
     } catch (error) {
-      console.error('[SYSTEM] Failed to dispatch email:', error);
-      // In a real app, we might want to return an error here, but for a demo, 
-      // we'll proceed so the user doesn't see a "broken" form if the key isn't set yet.
+      console.error('[SYSTEM] Dispatch Failure:', error);
     }
 
     res.status(200).json({ 
       status: "success", 
-      message: "Handshake initiated. Verification sequence queued.",
+      message: "Handshake initiated successfully.",
       timestamp: new Date().toISOString()
     });
+  };
+
+  app.post("/api/inquiry", inquiryHandler);
+  app.post("/api/inquiry/", inquiryHandler);
+  app.use("/api/inquiry", (req, res, next) => {
+    if (req.url === '/' || req.url === '') {
+      if (req.method !== 'POST') {
+        return res.status(405).json({ status: "error", message: "Method not allowed. Use POST." });
+      }
+    }
+    next();
   });
 
   // API: Health Check

@@ -34,7 +34,7 @@
   --radius-md:     12px; /* Bento Stack constraint */
   --radius-lg:     12px; /* Bento Stack constraint */
   --border-alpha:  rgba(11, 31, 51, 0.15);
-  --container-max: 1160px;
+  --container-max: 1280px;
 }
 
 html, body {
